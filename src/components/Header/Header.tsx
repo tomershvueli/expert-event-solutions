@@ -7,13 +7,13 @@ export function Header () {
             <Link to="/">
             {/* run npm run storybook:node16 */}
              {/* http://localhost:6006/iframe.html?id=components-header--default */}
-            <img className="header-logo" src={EES} alt="EES Logo"></img>
+            <img className="header__logo" src={EES} alt="EES Logo"></img>
             </Link>
-            <ol className="header-navbar">
-                <li className="header-navbar-item">About us</li>
-                <li className="header-navbar-item">Renting equipment</li>
-                <li className="header-navbar-item">Staffing services</li>
-                <li className="header-navbar-item">Contact</li>
+            <ol className="header__navbar">
+                <li className="header__navbar-item" onClick={() => console.log('clicked about us')}>About us</li>
+                <li className="header__navbar-item" onClick={() => console.log('clicked renting equipment')}>Renting equipment</li>
+                <li className="header__navbar-item" onClick={() => console.log('clicked services')}>Staffing services</li>
+                <li className="header__navbar-item" onClick={() => console.log('clicked contact')}>Contact</li>
             </ol>
         </div>
     )
