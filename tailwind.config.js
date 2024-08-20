@@ -1,3 +1,4 @@
+import { faWheatAlt } from "@fortawesome/free-solid-svg-icons";
 import HeadlessTailwindPlugin from "@headlessui/tailwindcss";
 
 /** @type {import('tailwindcss').Config} */
@@ -9,27 +10,11 @@ export default {
     screens: { sm: "390px" },
     extend: {
       colors: {
-        black: "#121212",
-        white: "#FFFFFF",
-        lightYellow: "#fff7cc",
-        yellow: "#ffea7a",
-        darkYellow: "#ffe871",
-        lightGray: "#f5f5f5",
-        lightBlue: "#c8e1fa",
-        blue: "#64affa",
-        lightPink: "#ffccd4",
-        pink: "#ff8093",
-        lightGreen: "#c9fbc9",
-        green: "#5cd65c",
-        lightPurple: "#f3d3fb",
-        purple: "#e286f9",
-        red: "#ff3636",
+        black: "#111",
+        red: "#D0564F",
+        wheat: "#FAF9EC",
+        offwhite: "#E9E8D5",
       },
-      backgroundImage: (theme) => ({
-        "gradient-welcome": `linear-gradient(to bottom, ${theme(
-          "colors.lightYellow",
-        )}, ${theme("colors.darkYellow")})`,
-      }),
       fontSize: {
         "welcome-title": "44px",
         "section-header": "32px",
