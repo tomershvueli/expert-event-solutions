@@ -24,7 +24,8 @@ export default {
         "caption-text": "12px",
       },
       fontFamily: {
-        text: ["Rubik", "Arial", "sans"],
+        title: ["Merriweather", "Times New Roman", "serif"],
+        text: ["Roboto Flex", "Arial", "sans"],
       },
       maxWidth: {
         pageContent: "370px",
