@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./global/default.css";
-import { Button } from "./components/Button";
+import { Button } from "./components/Button/Button";
 
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         
-        <Button submit={console.log} buttonText={"Contact Us!"}/>
+        <Button submit={console.log} />
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
