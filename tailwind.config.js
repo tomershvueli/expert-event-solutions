@@ -7,7 +7,7 @@ export default {
   mode: "jit",
   purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
   theme: {
-    screens: { sm: "390px" },
+    screens: { sm: "340px" },
     extend: {
       colors: {
         black: "#111",
@@ -29,9 +29,6 @@ export default {
       fontFamily: {
         title: ["Merriweather", "Times New Roman", "serif"],
         text: ["Roboto Flex", "Arial", "sans"],
-      },
-      maxWidth: {
-        pageContent: "370px",
       },
     },
   },
