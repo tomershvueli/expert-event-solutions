@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 7.47px;
+}
+
+.form__input {
+  width: 411.03px;
+  height: 47.04px;
+  padding: 12.7px 14.2px 12.7px 14.2px;
+  border-radius: 12px;
+  background-color: #e9e8d5;
+}
+
+.form__input--error {
+  border: 1px solid #ff0000;
+}
+
+.form__error {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
