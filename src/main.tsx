@@ -2,7 +2,6 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ModalProvider } from "./components/ModalContext/ModalContext";
 import "./global/default.css";
 import App from "./components/App/App";
 const client = new ApolloClient({
@@ -19,9 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             path="/"
             element={
               <div>
-                <ModalProvider>
-                  <App />
-                </ModalProvider>
+                <App />
               </div>
             }
           />
