@@ -2,6 +2,7 @@ import "./Modal.css";
 
 import React from "react";
 import { useModal } from "../ModalContext/ModalHook";
+import { ModalOverlay } from "./ModalOverlay";
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -15,8 +16,10 @@ export const Modal = ({ children, name }: ModalProps) => {
   }
 
   return (
-    <div className="modal__overlay" onClick={closeModal}>
-      <dialog className={`modal ${name}`}>{children}</dialog>
-    </div>
+    <ModalOverlay className="modal__overlay" onClick={closeModal}>
+      <dialog className={`modal ${name}`} onClick={(e) => e.stopPropagation()}>
+        {children}
+      </dialog>
+    </ModalOverlay>
   );
 };
