@@ -1,6 +1,4 @@
 import "./App.css";
-import { Header } from "../Header/Header";
-import { Footer } from "../Footer/Footer";
 import { Modal } from "../Modal/Modal";
 import { useModal } from "../ModalContext/ModalHook";
 // import { FormComponent } from "../Form/Form";
@@ -18,8 +16,6 @@ function App() {
   } = useForm();
   return (
     <div className="App">
-      <Header />
-      <Footer />
       <button onClick={openModal}>Open Modal</button>
       {isOpen && (
         <Modal name={modalName}>
