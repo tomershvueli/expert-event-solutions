@@ -1,6 +1,5 @@
 import "./App.css";
-import { Header } from "../Header/Header";
-import { Footer } from "../Footer/Footer";
+
 import { Modal } from "../Modal/Modal";
 import { useModal } from "../ModalContext/ModalHook";
 function App() {
@@ -10,8 +9,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Footer />
       <button onClick={openModal}>Open Modal</button>
       {isOpen && (
         <Modal name={modalName}>
