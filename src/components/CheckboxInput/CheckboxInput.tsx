@@ -5,24 +5,30 @@ import { useFormContext } from "react-hook-form";
 interface CheckboxInputProps {
   name: string;
   label: string;
+  error?: { message: string };
 }
-//interface CheckboxInputProps defines expected props for this component: "name" and "label"(label displayed next to checkbox)
-const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-  //useFormContext(): hook is used to access form's context, including "register" fxn to register checkbox w/in the form and "errors" to handle validation errors
+
+const CheckboxInput: React.FC<CheckboxInputProps> = ({
+  name,
+  label,
+  error,
+}) => {
+  const { register } = useFormContext();
+
   return (
     <div className="checkbox-input">
       <label>
-        <input type="checkbox" {...register(name, { required: true })} />
+        <input
+          type="checkbox"
+          {...register(name, {
+            required: "You must agree to the terms",
+          })}
+        />
         {label}
       </label>
-      {errors[name] && (
-        <span className="checkbox-error">This field is required</span>
-      )}
+      {error && <span className="checkbox-error">{error.message}</span>}
     </div>
   );
 };
+
 export default CheckboxInput;
