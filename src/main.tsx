@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App/App";
 import "./global/default.css";
+import { Image } from "./components/image/image";
 
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <App />
+        <Routes>
+          <Route path="/" element={<Image placeholder="some" type="email" />} />
+        </Routes>
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
