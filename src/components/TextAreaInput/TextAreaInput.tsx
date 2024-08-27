@@ -13,9 +13,11 @@ const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
     formState: { errors },
   } = useFormContext();
   const errorMessage = errors[name]?.message as string | undefined;
+
   return (
     <div className="text-area">
       <textarea
+        className="text-area-input"
         {...register(name, { required: "This field is required" })}
         placeholder={placeholder}
       />
@@ -23,4 +25,5 @@ const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
     </div>
   );
 };
+
 export default TextAreaInput;

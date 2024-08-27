@@ -1,50 +1,57 @@
+import "./Form.css";
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import CheckboxInput from "../CheckboxInput/CheckboxInput";
 import TextAreaInput from "../TextAreaInput/TextAreaInput";
 
-type FormValues = {
-  name: string;
-  email: string;
-  phone: string;
+export type FormValues = {
   description: string;
+  agreeToTerms: boolean;
 };
 
 interface FormProps {
-  submit: () => void;
+  submit: (data: FormValues) => void;
 }
 
 const Form = ({ submit }: FormProps) => {
-  // ^defines form component using functional component w typescript
-  // React.FC<FormProps> -->ensures component conforms to FormProps interface
-  const methods = useForm<FormValues>();
-  //useForm() manages form state and validation
-  //returns an object containing methods and properties that help
-  //with handling form input values, validation, and form submission
-  // const onSubmit = (data: any) => {
-  //   console.log(data);
-  // };
+  const methods = useForm<FormValues>({
+    mode: "onBlur", // This will trigger validation on blur
+  });
+  //The useForm hook returns a methods object that contains the formState property.
 
-  //handleSubmit
+  const onSubmit = methods.handleSubmit((data) => {
+    console.log("Form submitted with data:", data);
+    submit(data);
+    methods.reset();
+  });
+
   return (
     <FormProvider {...methods}>
-      {/* Spread form methods into FormProvider */}
-      <form>
-        <TextAreaInput
-          name="description"
-          placeholder="Give us some details about your event"
-        />
-        <CheckboxInput
-          name="submit"
-          label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
-        />
-        <button type="submit" onClick={submit}>
-          Submit
-        </button>
+      <form className="form" onSubmit={onSubmit}>
+        <div className="form__contents">
+          <div className="textarea-input-container">
+            <TextAreaInput
+              name="description"
+              placeholder="Give us some details about your event"
+            />
+          </div>
+          <CheckboxInput
+            name="agreeToTerms"
+            label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
+            error={{
+              message: methods.formState.errors.agreeToTerms?.message ?? "",
+            }}
+            //formState property contains the errors object, which contains validation errors for each form field.
+            //CheckboxInput component, the error prop is used to display an error message if the agreeToTerms checkbox input is not checked.
+            // message property that contains the error message.
+            //methods.formState.errors.agreeToTerms?.message expression checks if the agreeToTerms field has a validation error. If it does, the error message is displayed.
+            //?? "" operator is used to provide a default value of an empty string if the message property is undefined
+          />
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </FormProvider>
   );
-  //formProvider= wraps form so that form methods are available to all
-  //child components
 };
+
 export default Form;

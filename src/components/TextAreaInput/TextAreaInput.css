@@ -1,3 +1,16 @@
 .text-area-error {
   color: red;
 }
+.text-area-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 167px;
+  border-radius: 12px;
+  padding: 11.96px 14.2px;
+  background-color: #e9e8d5;
+}
+.text-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
