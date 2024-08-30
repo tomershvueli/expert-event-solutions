@@ -9,7 +9,7 @@ interface FormProps {
 
 export const Form = ({ className, children, ...rest }: FormProps) => {
   return (
-    <form className={`form ${className}`} {...rest}>
+    <form className={`flex flex-col gap-[7.47px] ${className}`} {...rest}>
       {children}
     </form>
   );
@@ -52,78 +52,19 @@ Form.TextInput = ({
   return (
     <>
       <input
-        className={`form__input ${errors[type] ? "form__input--error" : ""}`}
+        className={`w-[411.03px] h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px]  ${
+          errors[type] ? "border border-red-500" : ""
+        }`}
         type={type}
         placeholder={placeholder}
         {...register(type, validationRules)}
         onKeyDown={handleEnter}
       />
       {errors[type] && (
-        <span className="form__error">{errors[type]?.message?.toString()}</span>
+        <span className="ftext-red-600 text-sm mt-1">
+          {errors[type]?.message?.toString()}
+        </span>
       )}
     </>
   );
 };
-
-// export const FormComponent = () => {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm();
-
-//   const onSubmit = (data: FieldValues) => {
-//     console.log("Submitted data:", data);
-//   };
-
-//   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-//     if (e.key === "Enter") {
-//       handleSubmit(onSubmit)();
-//     }
-//   };
-
-//   interface TextInputProps {
-//     placeholder?: string;
-//     type: "email" | "tel";
-//   }
-
-//   const TextInput = ({ placeholder, type }: TextInputProps) => {
-//     const validationRules = {
-//       required:
-//         type === "tel" ? "Phone number is required" : "Email is required",
-//       pattern: {
-//         value:
-//           type === "tel"
-//             ? /^[+]?[0-9\s\-().]{10,15}$/
-//             : /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-//         message:
-//           type === "tel"
-//             ? "Invalid phone number format"
-//             : "Invalid email format",
-//       },
-//     };
-
-//     return (
-//       <>
-//         <input
-//           className={`form__input ${errors[type] ? "form__input--error" : ""}`}
-//           type={type}
-//           placeholder={placeholder}
-//           {...register(type, validationRules)}
-//           onKeyDown={handleEnter}
-//         />
-//         {errors[type] && (
-//           <span className="form__error">
-//             {errors[type]?.message?.toString()}
-//           </span>
-//         )}
-//       </>
-//     );
-//   };
-
-//   return (
-//     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-//       <TextInput placeholder="Phone Number" type="tel" />
-//     </form>
-//   );
-// };
