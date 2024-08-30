@@ -1,5 +1,4 @@
 import HeadlessTailwindPlugin from "@headlessui/tailwindcss";
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
