@@ -1,4 +1,3 @@
-import "./Header.css";
 import EES from "../../images/EES.svg";
 import { Link } from "react-router-dom";
 export function Header() {
