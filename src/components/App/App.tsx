@@ -1,4 +1,3 @@
-import "./App.css";
 // import { FormComponent } from "../Form/Form";
 import { Form } from "../Form/Form";
 import { useForm, FieldValues } from "react-hook-form";
