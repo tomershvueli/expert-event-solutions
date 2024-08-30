@@ -1,4 +1,3 @@
-import "./Form.css";
 import { useForm, FieldValues } from "react-hook-form";
 
 interface FormProps {
