@@ -31,6 +31,15 @@ export default {
         title: ["Merriweather", "Times New Roman", "serif"],
         text: ["Roboto Flex", "Arial", "sans"],
       },
+      keyframes: {
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(100px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "slide-up": "slide-up 0.7s ease-in-out forwards",
+      },
     },
   },
   plugins: [
