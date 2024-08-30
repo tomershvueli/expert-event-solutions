@@ -1,15 +1,15 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
-import { Image } from "./image";
+import { Image } from "./Image";
 
 export default {
   title: "components/image",
   component: Image,
 } as Meta;
-const Template: StoryFn = (args) => {
+const Template: StoryFn = () => {
   return (
     <BrowserRouter>
-      <Image {...args} placeholder="some" type="email" />
+      <Image src="path/to/image.jpg" alt="Description of the image" />
     </BrowserRouter>
   );
 };

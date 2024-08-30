@@ -1,7 +1,9 @@
-interface InputProps {
-  placeholder: string;
-  type: "email" | "phone";
+interface ImageProps {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
 }
-export const Image = ({ placeholder, type }: InputProps) => {
-  return <input placeholder={placeholder} type={type}></input>;
+export const Image = ({ src, alt }: ImageProps) => {
+  return <img src={src} alt={alt} />;
 };

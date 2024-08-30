@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./components/App/App";
 import "./global/default.css";
-import { Image } from "./components/image/image";
+import { Image } from "./components/Image/";
 
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
