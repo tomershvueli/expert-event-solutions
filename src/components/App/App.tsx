@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { Modal } from "../Modal/Modal";
 import { useModal } from "../ModalContext/ModalHook";
 function App() {
