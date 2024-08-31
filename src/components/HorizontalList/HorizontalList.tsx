@@ -1,7 +1,13 @@
-export const HorizontalList = () => {
+import { HorizontalListItem } from "./HorizontalListItem";
+interface HorizontalListProps {
+  children?: React.ReactNode;
+}
+export const HorizontalList = ({ children }: HorizontalListProps) => {
   return (
     <div>
-      <h1>HorizontalList</h1>
+      <ul>{children}</ul>
     </div>
   );
 };
+
+HorizontalList.Item = HorizontalListItem;
