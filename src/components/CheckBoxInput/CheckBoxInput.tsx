@@ -1,3 +1,42 @@
-export const CheckboxInput = () => {
-  return <div>CheckboxInput</div>;
+import "./CheckboxInput.css";
+import React from "react";
+import { useFormContext } from "react-hook-form";
+
+//useFormContext is a hook from the react-hook-form library, which helps manage forms in React applications.
+interface CheckboxInputProps {
+  name: string;
+  label: string;
+  error?: { message: string };
+}
+//error: an optional prop that represents an error object with a message property. The ? symbol indicates that this prop is optional.
+
+const CheckboxInput: React.FC<CheckboxInputProps> = ({
+  name,
+  label,
+  error,
+}) => {
+  //React.FC stands for "Functional Component" and is a type that represents a functional component in React.
+  //The component expects to receive the name, label, and error props, which are destructured from the props object.
+
+  const { register } = useFormContext();
+  //The useFormContext hook returns an object with a register property, which is used to register the checkbox input with the form.
+  return (
+    <div className="checkbox-input">
+      <label className="checkbox-label">
+        <input
+          type="checkbox"
+          className="checkbox-input-field"
+          {...register(name, {
+            required: "You must agree to the terms",
+          })}
+          //The "register" function is called with the "name" prop as an argument. The "register" function returns an object with a required property.
+        />
+        {label}
+        {/*The "label" prop is passed as a child element of the "label" element. */}
+      </label>
+      {error && <span className="checkbox-error">{error.message}</span>}
+    </div>
+  );
 };
+
+export default CheckboxInput;
