@@ -1,4 +1,15 @@
-# Apiary Project: Expert Event Solutions
+# Apiary Project: project_name
+
+## Creating a new project (Delete this section)
+
+- Replace instances of `project_name` with your project's title
+- Update `index.html` with your project's title, favicon, etc
+- Update `tailwind.config.js` with your project's theme configuration (colors, fonts, etc)
+- Change any defaults in `global/default.css`
+- (Optional) Create deployment buckets in AWS for Production and for Storybook, update links below with those URLs
+  - - Add secrets to the github repo to support the github actions for deploying both sites
+  - - Update the deploy actions to use the correct buckets and cloudfront distributions
+- The `package.json` contains a lot of dependencies that are commonly used in these projects; Feel free to delete or add any that are likely to pop up in this project.
 
 ## Getting Started
 
