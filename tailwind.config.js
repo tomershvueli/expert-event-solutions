@@ -1,10 +1,7 @@
-import HeadlessTailwindPlugin from "@headlessui/tailwindcss";
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{html,js,jsx,ts,tsx}"],
   mode: "jit",
-  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
   theme: {
     screens: { sm: "390px" },
     extend: {
@@ -24,6 +21,7 @@ export default {
         lightPurple: "#f3d3fb",
         purple: "#e286f9",
         red: "#ff3636",
+        formBackground: "#FAF9EC",
       },
       backgroundImage: (theme) => ({
         "gradient-welcome": `linear-gradient(to bottom, ${theme(
@@ -47,7 +45,7 @@ export default {
     },
   },
   plugins: [
-    HeadlessTailwindPlugin({ prefix: "ui" }),
+    require("@headlessui/tailwindcss")({ prefix: "ui" }),
     function ({ addUtilities }) {
       addUtilities({
         ".scrollbar-none": {
