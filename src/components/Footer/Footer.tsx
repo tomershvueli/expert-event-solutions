@@ -32,13 +32,13 @@ export const Footer = () => {
 
       <div className="flex flex-col gap-[24px]">
         <p
-          className="font-text sm:hidden"
+          className="font-text text-paragraph-sm sm:hidden"
           onClick={() => console.log("clicked contacts")}
         >
           Contacts
         </p>
         <p
-          className="font-text sm:hidden"
+          className="font-text text-paragraph-sm sm:hidden"
           onClick={() => console.log("clicked rental conditions")}
         >
           Rental Conditions
