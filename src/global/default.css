@@ -1,14 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+/* global/default.css */
 
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400&display=swap");
+
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Custom styles */
 @layer base {
   html {
-    font-family:
-      "Roboto Flex",
-      system-ui sans-serif;
+    font-family: "Rubik", system-ui, sans-serif; /* Default font */
+  }
+
+  /* You can add other font-family styles here if needed */
+  body {
+    font-family: "Roboto Flex", sans-serif; /* Example for body text */
   }
 }

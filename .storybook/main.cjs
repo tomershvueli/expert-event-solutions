@@ -7,16 +7,13 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-scss",
   ],
-
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-
   features: {
     storyStoreV7: true,
   },
-
   async viteFinal(config) {
     // Merge custom configuration into the default config
     return mergeConfig(config, {
@@ -28,7 +25,6 @@ module.exports = {
       },
     });
   },
-
   docs: {
     autodocs: true,
   },

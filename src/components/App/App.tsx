@@ -1,16 +1,16 @@
-import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Form from "../Form/Form";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <div className="flex justify-center">
       <Routes>
         <Route
           path="/"
           element={
-            <div className="form-wrapper">
+            <div className="w-full max-w-[467px] mx-auto">
+              {/* Wrapper for Form: The inner div ("w-full max-w-[467px] mx-auto") sets the maximum width and centers the form within that constrained width.*/}
               <Form submit={() => console.log("Form submitted!")} />
             </div>
           }
@@ -19,4 +19,5 @@ const App: React.FC = () => {
     </div>
   );
 };
+
 export default App;
