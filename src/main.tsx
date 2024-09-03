@@ -1,10 +1,10 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./components/App/App";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import App from "./components/App/App";
 import "./global/default.css";
-import { Image } from "./components/Image/";
+import { Image } from "./components/image/image";
 
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Image placeholder="some" type="email" />} />
+          <Route path="/" element={<Image src="" alt="" />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
