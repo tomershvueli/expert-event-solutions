@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Form from "../Form/Form";
 
 const App: React.FC = () => {
   return (
@@ -7,10 +8,15 @@ const App: React.FC = () => {
       <Routes>
         <Route
           path="/"
-          element={<div className="w-full max-w-[467px] mx-auto"></div>}
+          element={
+            <div className="w-full max-w-[467px] mx-auto">
+              <Form submit={() => console.log("Form submitted!")} />
+            </div>
+          }
         />
       </Routes>
     </div>
   );
 };
+
 export default App;

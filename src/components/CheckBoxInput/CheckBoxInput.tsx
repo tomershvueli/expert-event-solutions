@@ -27,7 +27,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({
   };
   return (
     <div className="flex flex-col items-center">
-      <label className="flex items-baseline gap-2.5">
+      <label className="flex  gap-2.5">
         <img
           src={checkBox}
           onClick={handleisClicked}
