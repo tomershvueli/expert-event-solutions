@@ -38,7 +38,11 @@ const Form = ({ submit }: FormProps) => {
           </div>
 
           <button type="submit" className="mt-4">
-            <img src={submitButton} alt="Submit button" />
+            <img
+              className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
+              src={submitButton}
+              alt="Submit button"
+            />
           </button>
         </div>
       </form>
