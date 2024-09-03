@@ -27,8 +27,9 @@ function App() {
           key={item.title}
           title={item.title}
           description={item.description}
-          titleClassName="font-merriweather font-bold text-red"
-          listClassName="font-roboto text-[22px] font-normal leading-[26.4px] tracking-[-0.02em] text-center text-black"
+          titleClassName="font-merriweather text-[32px] text-red leading-[38.4px]"
+          listClassName="text-center text-black tracking-[-0.02em]"
+          descriptionClassName="font-roboto text-[22px] text-black leading-[26.4px]"
         />
       ))}
     </HorizontalList>
