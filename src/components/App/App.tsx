@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Image } from "../image/image";
+import { Image } from "../Image/Image";
 function App() {
   // import closeModal from useModal if you want a button to also close the modal
 
