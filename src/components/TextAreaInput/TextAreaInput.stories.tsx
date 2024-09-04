@@ -1,6 +1,8 @@
+import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import TextAreaInput from "./TextAreaInput";
 import { FormProvider, useForm } from "react-hook-form";
+
 export default {
   title: "TextAreaInput/TextAreaInput",
   component: TextAreaInput,

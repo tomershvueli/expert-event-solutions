@@ -26,7 +26,7 @@ const Form = ({ submit }: FormProps) => {
   return (
     <FormProvider {...methods}>
       <form
-        className="bg-formBackground p-[28px] pt-7 pb-10 rounded-[40px] max-w-[467px] w-full"
+        className="bg-wheat p-[28px] pt-7 pb-10 rounded-[40px] max-w-[467px] w-full"
         onSubmit={onSubmit}
       >
         <div className="flex flex-col justify-center items-center">
