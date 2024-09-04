@@ -10,7 +10,16 @@ const App: React.FC = () => {
           path="/"
           element={
             <div className="w-full max-w-[467px] mx-auto">
-              <Form submit={() => console.log("Form submitted!")} />
+              <Form
+                submit={(data) =>
+                  console.log("Form submitted with data:", data)
+                }
+              >
+                <Form.CheckboxInput
+                  name="agreeToTerms"
+                  label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
+                />
+              </Form>
             </div>
           }
         />
