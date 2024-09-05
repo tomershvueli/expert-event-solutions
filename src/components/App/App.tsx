@@ -16,10 +16,10 @@ const App: React.FC = () => {
                   console.log("Form submitted with data:", data)
                 }
               >
-                <Form.TextAreaInput
+                {/* <Form.TextAreaInput
                   name="agreeToTerms"
                   placeholder="Give us some details about your event"
-                />
+                /> */}
               </Form>
             </div>
           }

@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import submitButton from "../../images/submitbutton.svg";
 
 export type FormValues = {
@@ -13,7 +13,7 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> & {
-  TextAreaInput: React.FC<TextAreaInputProps>;
+  // TextAreaInput: React.FC<TextAreaInputProps>;
 } = ({ submit, children }) => {
   const methods = useForm<FormValues>({
     mode: "onBlur", // Triggers validation on blur
@@ -34,7 +34,7 @@ const Form: React.FC<FormProps> & {
         <div className="flex flex-col justify-center ">
           {children}
 
-          <button type="submit" className="flex mt-4 justify-center">
+          <button type="submit" className="flex mt-[42px] justify-center">
             <img
               className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
               src={submitButton}
@@ -47,29 +47,29 @@ const Form: React.FC<FormProps> & {
   );
 };
 
-interface TextAreaInputProps {
-  name: keyof FormValues; // Restrict name to keys of FormValues
-  placeholder?: string;
-  error?: { message: string };
-}
-const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<FormValues>();
-  const errorMessage = errors[name]?.message as string | undefined;
-  return (
-    <div className="flex flex-col items-center">
-      <textarea
-        className="w-full h-[167px] rounded-[12px] p-3.5 bg-[#E9E8D5] mb-2.5 box-border 
-      text-base font-roboto leading-[19.2px] resize-none"
-        {...register(name, { required: "This field is required" })}
-        placeholder={placeholder}
-      />
-      {errorMessage && <p className="text-red">{errorMessage}</p>}
-    </div>
-  );
-};
-Form.TextAreaInput = TextAreaInput;
+// interface TextAreaInputProps {
+//   name: keyof FormValues; // Restrict name to keys of FormValues
+//   placeholder?: string;
+//   error?: { message: string };
+// }
+// const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
+//   const {
+//     register,
+//     formState: { errors },
+//   } = useFormContext<FormValues>();
+//   const errorMessage = errors[name]?.message as string | undefined;
+//   return (
+//     <div className="flex flex-col items-center">
+//       <textarea
+//         className="w-full h-[167px] rounded-[12px] p-3.5 bg-[#E9E8D5] mb-2.5 box-border
+//       text-base font-roboto leading-[19.2px] resize-none"
+//         {...register(name, { required: "This field is required" })}
+//         placeholder={placeholder}
+//       />
+//       {errorMessage && <p className="text-red">{errorMessage}</p>}
+//     </div>
+//   );
+// };
+// Form.TextAreaInput = TextAreaInput;
 
 export default Form;
