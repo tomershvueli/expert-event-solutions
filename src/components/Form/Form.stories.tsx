@@ -12,5 +12,11 @@ export const Default: StoryFn = () => (
     submit={(data: FormValues) =>
       console.log("Form submitted with data:", data)
     }
-  />
+  >
+    <Form.TextAreaInput
+      name="agreeToTerms"
+      placeholder="Give us some details about your event"
+      error={{ message: "This field is required" }}
+    />
+  </Form>
 );
