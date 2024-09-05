@@ -102,7 +102,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
         {/* The "label" prop is passed as a child element of the "label" element. */}
       </label>
       {hasError && !isClicked ? (
-        <span className="text-[#CF534D]">{hasError}</span>
+        <span className="text-red">{hasError}</span>
       ) : null}
     </div>
   );
