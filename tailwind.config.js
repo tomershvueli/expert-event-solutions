@@ -23,9 +23,13 @@ export default {
 
     extend: {
       colors: {
-        magenta: "#D0564F",
+        lightBlack: "#111",
+        lightGrey: "#96968F",
         wheat: "#FAF9EC",
-        offwhite: "#E9E8D5",
+        offWhite: "#E9E8D5",
+        wetCoral: "#D0564F",
+        gingerFlower: "#D0514A",
+        lightGingerFlower: "#CF554E",
       },
       fontSize: {
         "welcome-title": "72px",
