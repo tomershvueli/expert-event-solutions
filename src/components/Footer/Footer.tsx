@@ -11,13 +11,13 @@ export const Footer = () => {
             <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:tracking-[-0.02em] sm:text-center ">
               Expert Event Solutions
             </p>
-            <p
+            <a
               className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left  sm:tracking-[-0.02em] sm:text-center  cursor-pointer"
               onClick={() => console.log("clicked address")}
             >
               260 Daytona Blvd, Daytona <br /> Beach, Florida 32114, United{" "}
               <br /> States
-            </p>
+            </a>
             <p
               className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left  sm:tracking-[-0.02em] sm:text-center  cursor-pointer"
               onClick={() => console.log("clicked email")}
