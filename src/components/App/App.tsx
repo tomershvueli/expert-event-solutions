@@ -21,14 +21,14 @@ const HomePageItems = [
 
 function App() {
   return (
-    <HorizontalList className="bg-wheat flex ">
+    <HorizontalList className="bg-wheat flex h-[260px] justify-between">
       {HomePageItems.map((item) => (
         <HorizontalList.Item
           key={item.title}
           title={item.title}
           description={item.description}
+          listClassName="flex flex-col text-center text-black tracking-[-0.02em] w-[296px] py-[24px] px-[24px] gap-[24px]"
           titleClassName="font-merriweather text-[32px] text-red leading-[38.4px]"
-          listClassName="text-center text-black tracking-[-0.02em]"
           descriptionClassName="font-roboto text-[22px] text-black leading-[26.4px]"
         />
       ))}
