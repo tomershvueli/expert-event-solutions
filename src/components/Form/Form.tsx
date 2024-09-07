@@ -51,7 +51,7 @@ Form.TextInput = ({
   return (
     <div className="flex flex-col">
       <input
-        className={`w-[411.03px] h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px]  ${
+        className={`w-[411.03px] h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px] text-form-text  ${
           errors[type] ? "border border-red-500" : ""
         }`}
         type={type}
@@ -60,7 +60,7 @@ Form.TextInput = ({
         onKeyDown={handleEnter}
       />
       {errors[type] && (
-        <span className="text-red text-sm mt-1">
+        <span className="text-red text-form-text mt-1">
           {errors[type]?.message?.toString()}
         </span>
       )}
