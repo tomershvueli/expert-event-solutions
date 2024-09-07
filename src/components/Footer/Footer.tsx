@@ -8,18 +8,18 @@ export const Footer = () => {
       <div className="flex flex-row gap-[287px] sm:gap-[26px] sm:flex-col">
         <div className="flex flex-col gap-[40px] sm:gap-[26px]">
           <div className="flex flex-col gap-[24px]">
-            <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:font-text sm:font-normal sm:leading-[26px] sm:tracking-[-0.02em] sm:text-center ">
+            <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:tracking-[-0.02em] sm:text-center ">
               Expert Event Solutions
             </p>
             <p
-              className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:font-text sm:font-normal sm:leading-[26px] sm:tracking-[-0.02em] sm:text-center  cursor-pointer"
+              className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left  sm:tracking-[-0.02em] sm:text-center  cursor-pointer"
               onClick={() => console.log("clicked address")}
             >
               260 Daytona Blvd, Daytona <br /> Beach, Florida 32114, United{" "}
               <br /> States
             </p>
             <p
-              className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:font-text sm:font-normal sm:leading-[26px] sm:tracking-[-0.02em] sm:text-center  cursor-pointer"
+              className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left  sm:tracking-[-0.02em] sm:text-center  cursor-pointer"
               onClick={() => console.log("clicked email")}
             >
               Info@experteventsolutions.com
@@ -42,7 +42,7 @@ export const Footer = () => {
           </p>
 
           <div className="flex flex-wrap flex-col gap-[10px] sm:content-center">
-            <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:font-text sm:font-normal sm:leading-[26px] sm:tracking-[-0.02em] sm:text-center ">
+            <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left  sm:tracking-[-0.02em] sm:text-center ">
               Social Media
             </p>
             <div className="flex flex-row gap-[10px] cursor-pointer">
@@ -67,7 +67,7 @@ export const Footer = () => {
         </div>
       </div>
 
-      <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:font-text sm:font-normal sm:leading-[26px] sm:tracking-[-0.02em] sm:text-center ">
+      <p className="font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:font-text sm:tracking-[-0.02em] sm:text-center ">
         Copyright © 2022. Expert Event Solutions - All rights reserved.
       </p>
       {/*  */}
