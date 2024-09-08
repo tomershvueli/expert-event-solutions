@@ -2,6 +2,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import App from "./components/App/App";
 import "./global/default.css";
 
 const client = new ApolloClient({
@@ -14,7 +15,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<div>Home Route</div>} />
+        <Route
+            path="/"
+            element={
+              <div>
+                <App />
+              </div>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
