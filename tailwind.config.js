@@ -26,6 +26,12 @@ export default {
         wheat: "#FAF9EC",
         magenta: "#D0564F",
         offwhite: "#E9E8D5",
+        lightBlack: "#111",
+        lightGrey: "#96968F",
+        offWhite: "#E9E8D5",
+        wetCoral: "#D0564F",
+        gingerFlower: "#D0514A",
+        lightGingerFlower: "#CF554E",
       },
       fontSize: {
         "welcome-title": "72px",
