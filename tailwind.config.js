@@ -2,47 +2,45 @@ import HeadlessTailwindPlugin from "@headlessui/tailwindcss";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{html,js,jsx,ts,tsx}"],
-  mode: "jit",
-  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx,vue}"],
+  content: [
+    "./index.html",
+    "./public/**/*.html",
+    "./src/**/*.{html,js,jsx,ts,tsx,vue}",
+  ],
   theme: {
-    screens: { sm: "390px" },
+    screens: {
+      "2xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+      xl: { max: "1279px" },
+      // => @media (max-width: 1279px) { ... }
+      lg: { max: "1023px" },
+      // => @media (max-width: 1023px) { ... }
+      md: { max: "767px" },
+      // => @media (max-width: 767px) { ... }
+      sm: { max: "639px" },
+      // => @media (max-width: 639px) { ... }
+    },
+
     extend: {
       colors: {
-        black: "#121212",
-        white: "#FFFFFF",
-        lightYellow: "#fff7cc",
-        yellow: "#ffea7a",
-        darkYellow: "#ffe871",
-        lightGray: "#f5f5f5",
-        lightBlue: "#c8e1fa",
-        blue: "#64affa",
-        lightPink: "#ffccd4",
-        pink: "#ff8093",
-        lightGreen: "#c9fbc9",
-        green: "#5cd65c",
-        lightPurple: "#f3d3fb",
-        purple: "#e286f9",
-        red: "#ff3636",
+        wheat: "#FAF9EC",
+        magenta: "#D0564F",
+        offwhite: "#E9E8D5",
       },
-      backgroundImage: (theme) => ({
-        "gradient-welcome": `linear-gradient(to bottom, ${theme(
-          "colors.lightYellow",
-        )}, ${theme("colors.darkYellow")})`,
-      }),
       fontSize: {
-        "welcome-title": "44px",
-        "section-header": "32px",
-        "section-subtext": "20px",
-        "paragraph-lg": "16px",
-        "paragraph-sm": "14px",
-        "caption-text": "12px",
+        "welcome-title": "72px",
+        "contact-header": "56px",
+        "ees-logo": "50px",
+        "section-header": "48px",
+        "section-subtext": "32px",
+        "button-lg": "24px",
+        "paragraph-lg button-sm": "22px",
+        "paragraph-sm": "20px",
+        "form-text": "16px",
       },
       fontFamily: {
-        text: ["Rubik", "Arial", "sans"],
-      },
-      maxWidth: {
-        pageContent: "370px",
+        title: ["Merriweather", "Times New Roman", "serif"],
+        text: ["Roboto Flex", "Arial", "sans"],
       },
     },
   },
