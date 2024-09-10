@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Form from "../Form/Form"; // Ensure this path is correct
+import CheckboxInput from "../CheckboxInput/CheckboxInput"; // Ensure this path is correct
 
 const App: React.FC = () => {
   return (
@@ -15,7 +16,12 @@ const App: React.FC = () => {
                 submit={(data) =>
                   console.log("Form submitted with data:", data)
                 }
-              ></Form>
+              >
+                <CheckboxInput
+                  name="agreeToTerms"
+                  label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
+                />
+              </Form>
             </div>
           }
         />
