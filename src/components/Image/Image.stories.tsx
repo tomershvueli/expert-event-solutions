@@ -17,6 +17,4 @@ export const Default = ImageTemplate.bind({});
 Default.args = {
   src: "src/assets/image-outdoor1.png",
   alt: "Image of sunny outdoor event",
-  width: 1179,
-  height: 665,
 };
