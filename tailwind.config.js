@@ -38,7 +38,7 @@ export default {
         "section-header": "48px",
         "section-subtext": "32px",
         "button-lg": "24px",
-        "paragraph-lg button-sm": "22px",
+        "paragraph-lg": "22px",
         "paragraph-sm": "20px",
         "form-text": "16px",
       },
