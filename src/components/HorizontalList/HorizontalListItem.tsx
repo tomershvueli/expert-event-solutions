@@ -1,12 +1,13 @@
 interface HorizontalListItemProps {
-  title: string;
-  description: string;
-  image?: HTMLImageElement;
+  title: JSX.Element | string;
+  description: JSX.Element | string;
+  image?: HTMLImageElement | { src: string; alt: string };
   className?: string;
   listClassName?: string;
   titleClassName?: string;
   descriptionClassName?: string;
   imageClassName?: string;
+  key?: string | number;
 }
 export const HorizontalListItem = ({
   title,

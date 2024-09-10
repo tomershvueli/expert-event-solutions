@@ -1,15 +1,17 @@
 import { HorizontalListItem } from "./HorizontalListItem";
 interface HorizontalListProps {
   children?: React.ReactNode;
-  className?: string;
+  containerClassName?: string;
+  unorderedListClassName?: string;
 }
 export const HorizontalList = ({
   children,
-  className,
+  containerClassName,
+  unorderedListClassName,
 }: HorizontalListProps) => {
   return (
-    <div className={className}>
-      <ul className={className}>{children}</ul>
+    <div className={containerClassName}>
+      <ul className={unorderedListClassName}>{children}</ul>
     </div>
   );
 };
