@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Form from "../Form/Form";
+import Form from "../Form/Form"; // Ensure this path is correct
 
 const App: React.FC = () => {
   return (
@@ -10,17 +10,12 @@ const App: React.FC = () => {
           path="/"
           element={
             <div className="w-full max-w-[467px] mx-auto">
-              {/* Wrapper for Form: The inner div ("w-full max-w-[467px] mx-auto") sets the maximum width and centers the form within that constrained width.*/}
+              {/* Wrapper for Form: Centers the form with a max width */}
               <Form
                 submit={(data) =>
                   console.log("Form submitted with data:", data)
                 }
-              >
-                {/* <Form.TextAreaInput
-                  name="agreeToTerms"
-                  placeholder="Give us some details about your event"
-                /> */}
-              </Form>
+              ></Form>
             </div>
           }
         />
