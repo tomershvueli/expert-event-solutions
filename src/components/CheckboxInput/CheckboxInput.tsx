@@ -1,54 +1,72 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import checkBox from "../../images/checkbox.svg";
 import check from "../../images/check.svg";
+import { FormValues } from "../Form/Form";
 
-// useFormContext is a hook from the react-hook-form library, which helps manage forms in React applications.
 interface CheckboxInputProps {
-  name: string;
+  name: keyof FormValues;
   label: string;
+  error?: { message: string };
 }
 
 const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
-  // React.FC stands for "Functional Component" and is a type that represents a functional component in React.
-  // The component expects to receive the name, label, and error props, which are destructured from the props object.
-  const [isClicked, setIsClicked] = useState(false);
   const {
     register,
-    formState: { isSubmitted, errors },
-  } = useFormContext();
-  // The useFormContext hook returns an object with a register property, which is used to register the checkbox input with the form.
-  const handleisClicked = () => {
-    setIsClicked(!isClicked);
+    formState: { errors, isSubmitted },
+    setValue,
+    getValues,
+  } = useFormContext<FormValues>();
+  const [isClicked, setIsClicked] = useState(getValues(name) || false);
+
+  // Handle checkbox click
+  const handleIsClicked = () => {
+    const newValue = !isClicked;
+    setIsClicked(newValue);
+    setValue(name, newValue); // Update the form state
   };
-  const errorMessage = errors[name]?.message as string | undefined;
+
+  // Sync local state with form state on value change
+  useEffect(() => {
+    setIsClicked(getValues(name));
+  }, [getValues, name, isSubmitted]);
+
+  // Reset checkbox state if form is submitted
+  useEffect(() => {
+    if (isSubmitted) {
+      setIsClicked(false);
+    }
+  }, [isSubmitted]);
+
+  const hasError = errors[name]?.message;
 
   return (
     <div className="flex flex-col items-center">
-      <label className="flex  gap-2.5">
-        <img
-          src={checkBox}
-          onClick={handleisClicked}
-          className="w-5 h-5 cursor-pointer"
-          {...register(name, {
-            required: "You must agree to the terms",
-          })}
-          // The "register" function is called with the "name" prop as an argument. The "register" function returns an object with a required property.
-        />
-        {isClicked && (
-          <img
-            className="absolute w-5 h-5 cursor-pointer"
-            src={check}
-            onClick={handleisClicked}
+      <div className="flex items-start gap-2.5">
+        <div
+          className="relative cursor-pointer"
+          onClick={handleIsClicked}
+          style={{ width: "20px", height: "20px" }}
+        >
+          <input
+            type="checkbox"
+            {...register(name, {
+              required: "You must agree to the terms",
+            })}
+            className="hidden"
           />
-        )}
-        {label}
-        {/* The "label" prop is passed as a child element of the "label" element. */}
-      </label>
-      {errorMessage && !isClicked && isSubmitted ? (
-        <span className="text-[red]">{errorMessage}</span>
-      ) : null}
+          <img src={checkBox} className="max-w-none h-[20px]" alt="checkbox" />
+          {isClicked && (
+            <img
+              src={check}
+              className="absolute top-0 left-0 max-w-none h-[20px]"
+              alt="checked"
+            />
+          )}
+        </div>
+        <span>{label}</span>
+      </div>
+      {hasError && !isClicked && <span className="text-red">{hasError}</span>}
     </div>
   );
 };
