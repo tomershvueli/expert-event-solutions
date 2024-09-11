@@ -98,9 +98,9 @@ const HomePageItems =
         },
       ];
 
-export const Default = Template.bind({});
+export const HomePageList = Template.bind({});
 
-Default.args = {
+HomePageList.args = {
   children: HomePageItems.map((item) => (
     <HorizontalList.Item
       title={item.title}
