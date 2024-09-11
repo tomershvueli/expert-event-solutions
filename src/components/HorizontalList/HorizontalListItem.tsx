@@ -7,7 +7,6 @@ interface HorizontalListItemProps {
   titleClassName?: string;
   descriptionClassName?: string;
   imageClassName?: string;
-  key?: string | number;
 }
 export const HorizontalListItem = ({
   title,
