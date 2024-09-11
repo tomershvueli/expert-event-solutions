@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import checkBox from "../../images/checkbox.svg";
 import check from "../../images/check.svg";
-import { FormValues } from "../../../../temp/Form/Form";
+import { FormValues } from "../Form/Form";
 
 interface CheckboxInputProps {
   name: keyof FormValues;
