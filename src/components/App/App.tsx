@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Form from "../Form/Form"; // Ensure this path is correct
+import Form from "../Form/Form";
 
 const App: React.FC = () => {
   return (
