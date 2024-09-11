@@ -1,7 +1,7 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import Form from "./Form";
-
+import TextAreaInput from "../TextAreaInput/TextAreaInput";
 import { FormValues } from "./Form";
 
 export default {
@@ -14,5 +14,10 @@ export const Default: StoryFn = () => (
     submit={(data: FormValues) =>
       console.log("Form submitted with data:", data)
     }
-  ></Form>
+  >
+    <TextAreaInput
+      name="description"
+      placeholder="Give us some details about your event"
+    />
+  </Form>
 );

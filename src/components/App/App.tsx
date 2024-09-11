@@ -2,7 +2,11 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Form from "../Form/Form";
 
+import TextAreaInput from "../TextAreaInput/TextAreaInput"; // Import the new TextAreaInput component
+
 const App: React.FC = () => {
+  const isDevelopment = process.env.NODE_ENV === "development";
+
   return (
     <div className="flex justify-center">
       <Routes>
@@ -10,12 +14,23 @@ const App: React.FC = () => {
           path="/"
           element={
             <div className="w-full max-w-[467px] mx-auto">
-              {/* Wrapper for Form: Centers the form with a max width */}
-              <Form
-                submit={(data) =>
-                  console.log("Form submitted with data:", data)
-                }
-              ></Form>
+              {isDevelopment ? (
+                <Form
+                  submit={(data) =>
+                    console.log("Form submitted with data:", data)
+                  }
+                >
+                  <TextAreaInput
+                    name="description"
+                    placeholder="Enter your description here..."
+                  />
+                </Form>
+              ) : (
+                <TextAreaInput
+                  name="description"
+                  placeholder="Give us some details about your event"
+                />
+              )}
             </div>
           }
         />
