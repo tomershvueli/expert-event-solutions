@@ -44,9 +44,8 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
     <div className="flex flex-col items-center">
       <div className="flex items-start gap-2.5">
         <div
-          className="relative cursor-pointer"
+          className="relative cursor-pointer h-[20px] w-[20px]"
           onClick={handleIsClicked}
-          style={{ width: "20px", height: "20px" }}
         >
           <input
             type="checkbox"
