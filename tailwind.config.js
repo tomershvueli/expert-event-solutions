@@ -8,22 +8,36 @@ export default {
     "./src/**/*.{html,js,jsx,ts,tsx,vue}",
   ],
   theme: {
-    screens: { sm: "340px" },
+    screens: {
+      "2xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+      xl: { max: "1279px" },
+      // => @media (max-width: 1279px) { ... }
+      lg: { max: "1023px" },
+      // => @media (max-width: 1023px) { ... }
+      md: { max: "767px" },
+      // => @media (max-width: 767px) { ... }
+      sm: { max: "639px" },
+      // => @media (max-width: 639px) { ... }
+    },
     extend: {
       colors: {
-        black: "#111",
-        red: "#D0564F",
+        lightBlack: "#111",
+        lightGrey: "#96968F",
         wheat: "#FAF9EC",
         offwhite: "#E9E8D5",
+        offWhite: "#E9E8D5",
+        wetCoral: "#D0564F",
+        gingerFlower: "#D0514A",
+        lightGingerFlower: "#CF554E",
       },
       fontSize: {
         "welcome-title": "72px",
-        "contact-header": "56px",
-        "ees-logo": "50px",
         "section-header": "48px",
         "section-subtext": "32px",
         "button-lg": "24px",
         "paragraph-lg button-sm": "22px",
+        "paragraph-lg": "22px",
         "paragraph-sm": "20px",
         "form-text": "16px",
       },

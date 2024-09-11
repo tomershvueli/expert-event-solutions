@@ -69,7 +69,7 @@ function App() {
             description: <>Running events, triathlons, obstacle races </>,
           },
           {
-            title: <>Work& family</>,
+            title: <>Work&family</>,
             description: (
               <>
                 Weddings, family and corporate <br /> events, community events
@@ -96,15 +96,15 @@ function App() {
 
   return (
     <HorizontalList
-      containerClassName="bg-wheat sm:flex-col sm:justify-center sm:items-center"
-      unorderedListClassName="flex justify-between h-[260px] w-[296px] sm:flex-col sm:h-[100%]"
+      containerClassName="bg-wheat"
+      unorderedListClassName="flex justify-between h-[260px] sm:flex-col sm:h-[100%] sm:flex-col sm:justify-center sm:items-center"
     >
       {HomePageItems.map((item) => (
         <HorizontalList.Item
           title={item.title}
           description={item.description}
-          listClassName="flex flex-col text-center text-black tracking-[-0.02em] py-[24px] px-[24px] gap-[24px] sm:px-[12px] sm:gap-[12px]"
-          titleClassName="font-merriweather text-section-subtext text-red leading-[38.4px]"
+          listClassName="flex flex-col w-[296px] text-center text-black tracking-[-0.02em] py-[24px] px-[24px] gap-[24px] sm:px-[12px] sm:gap-[12px]"
+          titleClassName="font-merriweather text-section-subtext text-lightGingerFlower leading-[38.4px]"
           descriptionClassName="font-roboto text-[22px] text-black leading-[26.4px] sm:text-paragraph-sm "
         />
       ))}
