@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { FormValues } from "../../../../temp/Form/Form"; // Adjust the import path as necessary
+import { FormValues } from "../Form/Form";
 
 interface TextAreaInputProps {
   name: keyof FormValues; // Restrict name to keys of FormValues

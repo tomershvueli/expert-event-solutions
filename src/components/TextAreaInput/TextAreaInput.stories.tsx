@@ -2,7 +2,7 @@ import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { FormProvider, useForm } from "react-hook-form";
 import TextAreaInput from "./TextAreaInput";
-import { FormValues } from "../../../../temp/Form/Form"; // Adjust the import path as necessary
+import { FormValues } from "../Form/Form"; // Adjust the import path as necessary
 
 export default {
   title: "Components/TextAreaInput",
