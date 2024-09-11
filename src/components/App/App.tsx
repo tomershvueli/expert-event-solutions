@@ -2,9 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Form from "../Form/Form"; // Ensure this path is correct
 import CheckboxInput from "../CheckboxInput/CheckboxInput"; // Ensure this path is correct
-
+import TextAreaInput from "../TextAreaInput/TextAreaInput";
 const App: React.FC = () => {
-  const isDevelopment = process.env.NODE_ENV === "development";
   return (
     <div className="flex justify-center">
       <Routes>
@@ -12,23 +11,20 @@ const App: React.FC = () => {
           path="/"
           element={
             <div className="w-full max-w-[467px] mx-auto">
-              {isDevelopment ? (
-                <Form
-                  submit={(data) =>
-                    console.log("Form submitted with data:", data)
-                  }
-                >
-                  <CheckboxInput
-                    name="agreeToTerms"
-                    label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
-                  />
-                </Form>
-              ) : (
+              <Form
+                submit={(data) =>
+                  console.log("Form submitted with data:", data)
+                }
+              >
+                <TextAreaInput
+                  name="description"
+                  placeholder="Give us some details about your event"
+                />
                 <CheckboxInput
                   name="agreeToTerms"
                   label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
                 />
-              )}
+              </Form>
             </div>
           }
         />

@@ -33,16 +33,14 @@ const Form: React.FC<FormProps> = ({ submit, children }) => {
         <div className="flex flex-col justify-center items-center">
           {children}
           {/* Mock submit button for testing purposes */}
-          {/* Conditionally render the mock submit button for testing purposes */}
-          {process.env.NODE_ENV === "development" && (
-            <button type="submit" className="mt-10">
-              <img
-                className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
-                src={submitButton}
-                alt="Submit button"
-              />
-            </button>
-          )}
+
+          <button type="submit" className="mt-10">
+            <img
+              className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
+              src={submitButton}
+              alt="Submit button"
+            />
+          </button>
         </div>
       </form>
     </FormProvider>

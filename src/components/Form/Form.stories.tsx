@@ -3,6 +3,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import Form from "./Form";
 import CheckboxInput from "../CheckboxInput/CheckboxInput";
 import { FormValues } from "./Form";
+import TextAreaInput from "../TextAreaInput/TextAreaInput";
 
 export default {
   title: "Components/Form",
@@ -15,6 +16,10 @@ export const Default: StoryFn = () => (
       console.log("Form submitted with data:", data)
     }
   >
+    <TextAreaInput
+      name="description"
+      placeholder="Give us some details about your event"
+    />
     <CheckboxInput
       name="agreeToTerms"
       label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
