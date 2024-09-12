@@ -8,11 +8,12 @@ interface ModalTriggerArgs {
 export const ModalTrigger = ({ name, children }: ModalTriggerArgs) => {
   const { openModal } = useModal(name);
 
-  // Open the modal on button click instead of using useEffect
   return (
     <>
       <button onClick={openModal}>Open Modal</button>
-      <Modal name={name}>{children}</Modal>
+      <Modal onClose={() => {}} isOpen={false} name={name}>
+        {children}
+      </Modal>
     </>
   );
 };
