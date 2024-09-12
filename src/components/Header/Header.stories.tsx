@@ -6,6 +6,14 @@ import { Header } from "./Header";
 export default {
   title: "components/Header",
   component: Header,
+  argTypes: {
+    screenWidth: {
+      control: {
+        type: "select",
+        options: ["mobile", "desktop"],
+      },
+    },
+  },
 } as Meta;
 
 const Template: StoryFn = (args) => {
@@ -16,5 +24,7 @@ const Template: StoryFn = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+export const HeaderComponent = Template.bind({});
+HeaderComponent.args = {
+  screenWidth: "desktop",
+};
