@@ -8,10 +8,6 @@ export interface ModalProps {
   onClose?: () => void; // Added prop
 }
 
-// const onClose = () => {
-//   return { isOpen: false };
-// };
-
 export const Modal = ({ children, name, isOpen, onClose }: ModalProps) => {
   // Early return if the modal isn't open
   if (!isOpen) {
