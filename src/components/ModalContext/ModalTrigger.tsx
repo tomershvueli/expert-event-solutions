@@ -1,16 +1,18 @@
-import { useEffect } from "react";
-import { Modal } from "../Modal/Modal";
 import { useModal } from "./ModalHook";
+import { Modal } from "../Modal/Modal";
 interface ModalTriggerArgs {
   name: string;
   children: React.ReactNode;
 }
 
-export const ModalTrigger = (args: ModalTriggerArgs) => {
-  const { openModal } = useModal(args.name);
-  useEffect(() => {
-    openModal();
-  });
+export const ModalTrigger = ({ name, children }: ModalTriggerArgs) => {
+  const { openModal } = useModal(name);
 
-  return <Modal {...args}></Modal>;
+  // Open the modal on button click instead of using useEffect
+  return (
+    <>
+      <button onClick={openModal}>Open Modal</button>
+      <Modal name={name}>{children}</Modal>
+    </>
+  );
 };
