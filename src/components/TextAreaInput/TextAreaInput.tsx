@@ -19,12 +19,12 @@ const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
   return (
     <div className=" w-full flex flex-col items-center">
       <textarea
-        className="w-full h-[167px] rounded-[12px] p-3.5 bg-[#E9E8D5] mb-2.5 box-border 
+        className="w-full h-[167px] rounded-[12px] p-3.5 bg-offWhite mb-2.5 box-border 
       text-base font-roboto leading-[19.2px] resize-none"
         {...register(name, { required: "This field is required" })}
         placeholder={placeholder}
       />
-      {errorMessage && <p className="text-red">{errorMessage}</p>}
+      {errorMessage && <p className="text-wetCoral">{errorMessage}</p>}
     </div>
   );
 };

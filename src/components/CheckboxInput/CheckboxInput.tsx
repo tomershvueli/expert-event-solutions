@@ -65,7 +65,9 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
         </div>
         <span>{label}</span>
       </div>
-      {hasError && !isClicked && <span className="text-red">{hasError}</span>}
+      {hasError && !isClicked && (
+        <span className="text-wetCoral">{hasError}</span>
+      )}
     </div>
   );
 };
