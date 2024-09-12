@@ -1,36 +1,31 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
-import { Form } from "./Form";
-import { FieldValues, useForm } from "react-hook-form";
-
+import { FormPhoneInputComponent } from "./FormTextInputComponent";
+import { FormEmailInputComponent } from "./FormTextInputComponent";
 export default {
   title: "components/Form",
-  component: Form,
+  components: { FormPhoneInputComponent, FormEmailInputComponent },
+  args: {},
 } as Meta;
 
-const Template: StoryFn = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+const PhoneInputTemplate: StoryFn = () => {
   return (
     <BrowserRouter>
-      {/* you can place either value 'email or phone' (case sensitive) in type, placeholder is optional and customizable */}
-      {/* <FormComponent {...args} /> */}
-      <Form.TextInput
-        type="tel"
-        placeholder="Phone Number"
-        register={register}
-        errors={errors}
-        handleSubmit={handleSubmit}
-        onSubmit={(data: FieldValues) => {
-          console.log("Submitted data:", data);
-        }}
-      ></Form.TextInput>
+      <FormPhoneInputComponent />
     </BrowserRouter>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {};
+const EmailInputTemplate: StoryFn = () => {
+  return (
+    <BrowserRouter>
+      <FormEmailInputComponent />
+    </BrowserRouter>
+  );
+};
+
+export const FormPhoneInput = PhoneInputTemplate.bind({});
+FormPhoneInput.args = {};
+
+export const FormEmailInput = EmailInputTemplate.bind({});
+FormEmailInput.args = {};
