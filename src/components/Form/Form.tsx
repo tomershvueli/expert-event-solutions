@@ -9,9 +9,10 @@ export type FormValues = {
 interface FormProps {
   submit: (data: FormValues) => void;
   children?: React.ReactNode;
+  className?: string; // Add className for dynamic styling
 }
 
-const Form: React.FC<FormProps> = ({ submit, children }) => {
+const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   const methods = useForm<FormValues>({
     mode: "onBlur",
   });
@@ -26,12 +27,10 @@ const Form: React.FC<FormProps> = ({ submit, children }) => {
   return (
     <FormProvider {...methods}>
       <form
-        className="bg-wheat p-[28px] pt-7 pb-10 rounded-[40px] max-w-[467px] w-full"
+        className={`flex flex-col gap-[7.47px] ${className}`}
         onSubmit={onSubmit}
       >
-        <div className="flex flex-col justify-center items-center">
-          {children}
-        </div>
+        {children}
       </form>
     </FormProvider>
   );
