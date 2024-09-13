@@ -17,7 +17,7 @@ export function Header({ screenWidth }: Props) {
     const handleResize = () => {
       const width = window.innerWidth;
       setWindowWidth(width); // Track window width
-      setShowMenuIcon(width < 800 ? true : false);
+      setShowMenuIcon(width < 600 ? true : false);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -29,14 +29,14 @@ export function Header({ screenWidth }: Props) {
   return (
     <>
       <div
-        className={`flex justify-between items-center w-full h-[74px] px-[128px] py-[80px] bg-wheat
+        className={`flex justify-between items-center w-full h-[74px] px-[128px] lg:p-[64px] py-[80px] bg-wheat
           border-x-4 border-transparent
           ${
-            showMenu && windowWidth < 800
+            showMenu && windowWidth < 600
               ? "border-x-lightGingerFlower border-x-4"
               : ""
           }
-          ${windowWidth < 800 ? "px-[8px] py-[8px]" : ""}
+          ${windowWidth < 600 ? "px-[8px] py-[8px]" : ""}
           ${
             isMobile
               ? "px-[8px] py-[8px] border-x-lightGingerFlower border-x-4"
@@ -49,8 +49,8 @@ export function Header({ screenWidth }: Props) {
           <img
             src={EES}
             alt="EES Logo"
-            className={`${
-              windowWidth < 800 ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""
+            className={`lg:w-[75px]${
+              windowWidth < 600 ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""
             }
               ${isMobile ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""}`}
           ></img>
@@ -68,28 +68,28 @@ export function Header({ screenWidth }: Props) {
             <>
               <a
                 className="font-text text-paragraph-sm font-medium leading-[18px] text-center
-                  cursor-pointer"
+                  cursor-pointer lg:text-[18px]"
                 onClick={() => console.log("clicked about us")}
               >
                 About us
               </a>
               <a
                 className="font-text text-paragraph-sm font-medium leading-[18px] text-center
-                  cursor-pointer"
+                  cursor-pointer lg:text-[18px]"
                 onClick={() => console.log("clicked renting equipment")}
               >
                 Renting equipment
               </a>
               <a
                 className="font-text text-paragraph-sm font-medium leading-[18px] text-center
-                  cursor-pointer"
+                  cursor-pointer lg:text-[18px]"
                 onClick={() => console.log("clicked services")}
               >
                 Staffing services
               </a>
               <a
                 className="font-text text-paragraph-sm font-medium leading-[18px] text-center
-                  cursor-pointer"
+                  cursor-pointer lg:text-[18px]"
                 onClick={() => console.log("clicked contact")}
               >
                 Contact
@@ -98,7 +98,7 @@ export function Header({ screenWidth }: Props) {
           )}
         </ul>
       </div>
-      {(showMenu && windowWidth < 800) || isMobile ? (
+      {(showMenu && windowWidth < 600) || isMobile ? (
         <div
           className="flex flex-col gap-[20px] bg-wheat border-b-4 border-x-4 border-lightGingerFlower
             rounded-b-[80px]"
