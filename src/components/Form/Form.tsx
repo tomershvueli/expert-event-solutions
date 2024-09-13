@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import submitButton from "../../images/submitbutton.svg";
-
 export type FormValues = {
   description: string;
   agreeToTerms: boolean;
@@ -10,9 +9,10 @@ export type FormValues = {
 interface FormProps {
   submit: (data: FormValues) => void;
   children?: React.ReactNode;
+  className?: string; // Add className for dynamic styling
 }
 
-const Form: React.FC<FormProps> = ({ submit, children }) => {
+const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   const methods = useForm<FormValues>({
     mode: "onBlur",
   });
@@ -27,21 +27,19 @@ const Form: React.FC<FormProps> = ({ submit, children }) => {
   return (
     <FormProvider {...methods}>
       <form
-        className="bg-wheat p-[28px] pt-7 pb-10 rounded-[40px] max-w-[467px] w-full"
+        className={`flex flex-col gap-[7.47px] ${className}`}
         onSubmit={onSubmit}
       >
-        <div className="flex flex-col justify-center items-center">
-          {children}
-          {/* Mock submit button for testing purposes */}
+        {children}
+        {/* Mock submit button for testing purposes */}
 
-          <button type="submit" className="mt-10">
-            <img
-              className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
-              src={submitButton}
-              alt="Submit button"
-            />
-          </button>
-        </div>
+        <button type="submit" className="mt-10 flex justify-center">
+          <img
+            className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
+            src={submitButton}
+            alt="Submit button"
+          />
+        </button>
       </form>
     </FormProvider>
   );
