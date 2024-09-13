@@ -11,12 +11,12 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
 
   return (
     <footer
-      className={`flex w-full flex-col bg-wheat p-[80px] gap-[40px] sm:p-[16px] sm:gap-[26px] ${
+      className={`flex w-full flex-col bg-wheat p-[80px] gap-[40px] lg:p-[60px] md:p-[40px] sm:p-[16px] sm:gap-[26px] ${
         isMobile ? "p-[16px] gap-[26px]" : "p-[80px] gap-[40px]"
       }`}
     >
       <div
-        className={`flex flex-row gap-[287px] sm:gap-[26px] sm:flex-col ${
+        className={`flex flex-row gap-[287px] lg:gap-[250px] md:gap-[140px] sm:gap-[26px] sm:flex-col ${
           isMobile ? "flex-col gap-[26px]" : "flex-row gap-[287px]"
         }`}
       >
