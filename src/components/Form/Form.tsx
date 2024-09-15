@@ -18,10 +18,8 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   });
 
   const onSubmit = methods.handleSubmit((data) => {
-    console.log("Form submitted with data:", data);
     submit(data);
     methods.reset(); // Reset form state after submission
-    console.log("Form reset.");
   });
 
   return (
