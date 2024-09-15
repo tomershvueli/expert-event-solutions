@@ -13,11 +13,6 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
     <footer
       className={
         "flex w-full flex-col bg-wheat p-[80px] gap-[40px] md:px-[16px] sm:self-center "
-        /* ${
-        isMobile
-          ? "p-[16px] gap-[26px]"
-          : "p-[80px] gap-[40px] sm:p-[16px] sm:gap-[26px]"
-      } */
       }
     >
       <div
