@@ -19,19 +19,18 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
   } = useFormContext<FormValues>();
   const [isClicked, setIsClicked] = useState(getValues(name) || false);
 
-  // Handle checkbox click
   const handleIsClicked = () => {
     const newValue = !isClicked;
     setIsClicked(newValue);
-    setValue(name, newValue); // Update the form state
+    setValue(name, newValue);
+    console.log("Checkbox state updated:", newValue);
   };
 
-  // Sync local state with form state on value change
   useEffect(() => {
+    console.log("Checkbox state from getValues:", getValues(name));
     setIsClicked(getValues(name));
   }, [getValues, name, isSubmitted]);
 
-  // Reset checkbox state if form is submitted
   useEffect(() => {
     if (isSubmitted) {
       setIsClicked(false);

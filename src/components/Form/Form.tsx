@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import submitButton from "../../images/submitbutton.svg";
+
 export type FormValues = {
   description: string;
   agreeToTerms: boolean;
@@ -23,12 +24,23 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
     methods.reset(); // Reset form state after submission
     console.log("Form reset.");
   });
-
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Optional: Prevent default behavior if needed
+      methods.handleSubmit((data) => {
+        console.log("Form submitted with data:", data);
+        submit(data);
+        methods.reset(); // Reset form state after submission
+        console.log("Form reset.");
+      })(); // Trigger submit function
+    }
+  };
   return (
     <FormProvider {...methods}>
       <form
         className={`flex flex-col gap-[7.47px] ${className}`}
         onSubmit={onSubmit}
+        onKeyDown={handleKeyDown}
       >
         {children}
         {/* Mock submit button for testing purposes */}
