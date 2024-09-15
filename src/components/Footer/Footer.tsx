@@ -11,12 +11,17 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
 
   return (
     <footer
-      className={`flex w-full flex-col bg-wheat p-[80px] gap-[40px] sm:p-[16px] sm:gap-[26px] ${
-        isMobile ? "p-[16px] gap-[26px]" : "p-[80px] gap-[40px]"
-      }`}
+      className={
+        "flex w-full flex-col bg-wheat p-[80px] gap-[40px] md:px-[16px] sm:self-center "
+        /* ${
+        isMobile
+          ? "p-[16px] gap-[26px]"
+          : "p-[80px] gap-[40px] sm:p-[16px] sm:gap-[26px]"
+      } */
+      }
     >
       <div
-        className={`flex flex-row gap-[287px] sm:gap-[26px] sm:flex-col ${
+        className={`flex flex-row gap-[287px] lg:gap-[150px] md:gap-[100px] sm:gap-[26px] sm:flex-col sm:max-w-fit sm:self-center ${
           isMobile ? "flex-col gap-[26px]" : "flex-row gap-[287px]"
         }`}
       >
@@ -25,7 +30,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             isMobile ? "gap-[26px]" : "gap-[40px]"
           }`}
         >
-          <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-col gap-[24px] ">
             <p
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
                 isMobile ? "text-center" : "text-left"
@@ -105,7 +110,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
       </div>
 
       <p
-        className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
+        className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center sm:text-wrap ${
           isMobile ? "text-center" : "text-left"
         }`}
       >
