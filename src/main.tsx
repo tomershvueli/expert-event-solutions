@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Routes>
           <Route path="/" element={<div>Home Route</div>} />
         </Routes>
+        
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
