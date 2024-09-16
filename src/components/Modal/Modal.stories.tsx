@@ -6,12 +6,6 @@ import { Modal } from "./Modal";
 export default {
   title: "components/Modal",
   component: Modal,
-  argTypes: {
-    isOpen: {
-      control: "boolean",
-      description: "Toggles the modal open and close state",
-    },
-  },
 } as Meta;
 
 const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
@@ -27,7 +21,7 @@ const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
       <Modal
         name="modal"
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)} // Close modal on overlay click
+        onClose={() => (setModalOpen(false), console.log(modalOpen))} // Close modal on overlay click
         children={<div></div>}
       ></Modal>
     </BrowserRouter>
@@ -35,6 +29,7 @@ const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
 };
 
 export const ModalComponent = Template.bind({});
+
 ModalComponent.args = {
   isOpen: false, // Default state is closed
 };
