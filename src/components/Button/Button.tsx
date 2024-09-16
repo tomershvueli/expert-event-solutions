@@ -1,8 +1,8 @@
 import buttonArrow from "../../assets/button-arrow.svg";
 
 interface Props {
-  onSubmit: () => void;
-  onClick: () => void;
+  onSubmit?: () => void;
+  onClick?: () => void;
   buttonText?: string;
   arrowButton?: boolean;
   submitButton?: boolean;
