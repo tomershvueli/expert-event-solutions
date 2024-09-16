@@ -14,7 +14,9 @@ const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
 
   const [, updateArgs] = useArgs();
 
-  const handleClose = () => updateArgs({ isOpen: !isOpen });
+  const handleClose = () => updateArgs({ isOpen: false });
+
+  const handleOpen = () => updateArgs({ isOpen: true });
 
   // Effect to sync Storybook control with local state
 
@@ -24,6 +26,12 @@ const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
 
   return (
     <BrowserRouter>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        onClick={() => handleOpen()}
+      >
+        Open Modal
+      </button>
       <Modal
         name="modal"
         isOpen={modalOpen}
