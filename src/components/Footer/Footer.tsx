@@ -19,8 +19,9 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
         }`}
     >
       <div
+        //  removed from class name below / removed from isMobile : gap-[287px]
         className={`flex flex-row gap-[287px] lg:gap-[190px] md:gap-[100px] sm:gap-[26px] sm:flex-col sm:max-w-fit sm:self-center ${
-          isMobile ? "flex-col gap-[26px]" : "flex-row gap-[287px]"
+          isMobile ? "flex-col gap-[26px]" : "flex-row"
         }`}
       >
         <div
@@ -86,18 +87,21 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             >
               Social Media
             </p>
-            <div className="flex flex-row gap-[10px] cursor-pointer">
+            <div className="flex flex-row gap-[10px] ">
               <img
+                className="cursor-pointer"
                 src={instagram}
                 onClick={() => console.log("clicked instagram")}
                 alt="Instagram"
               />
               <img
+                className="cursor-pointer"
                 src={facebook}
                 onClick={() => console.log("clicked facebook")}
                 alt="Facebook"
               />
               <img
+                className="cursor-pointer"
                 src={linkedin}
                 onClick={() => console.log("clicked linkedin")}
                 alt="LinkedIn"
