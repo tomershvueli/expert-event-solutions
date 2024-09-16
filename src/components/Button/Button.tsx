@@ -7,13 +7,13 @@ interface ButtonProps {
 
 export const Button = ({ submit, buttonText }: ButtonProps) => {
   return (
-    <div className="modal__form-submit">
+    <div className="submit">
       <button
         className="relative w-60 h-16 rounded-2xl border-4 border-lightGingerFlower bg-lightGingerFlower"
         type="submit"
         onClick={submit}
       >
-        <p className="font-title text-wheat font-bold leading-6 text-base">
+        <p className="font-title text-wheat font-bold leading-8 text-button-lg">
           {buttonText}
         </p>
       </button>
