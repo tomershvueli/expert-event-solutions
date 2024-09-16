@@ -7,9 +7,10 @@ interface Props {
 export const Button = ({ onClick, buttonText, submitButton }: Props) => {
   return (
     <>
-      <div className="relative z-1">
+      <div className="relative">
+        <div className="absolute w-80 h-20 rounded-3xl border-[6px] border-wetCoral top-[13px] md:border-4 md:rounded-2xl md:w-56 md:h-14 md:top-2"></div>
         <button
-          className={`relative z-999 w-80 h-20 rounded-3xl border-6 border-lightGingerFlower bg-lightGingerFlower md:border-4 md:rounded-2xl md:w-56 md:h-14`}
+          className={`relative w-80 h-20 rounded-3xl border-6 border-lightGingerFlower bg-lightGingerFlower md:border-4 md:rounded-2xl md:w-56 md:h-14`}
           type={submitButton ? "submit" : "button"}
           onClick={onClick}
         >
@@ -19,7 +20,6 @@ export const Button = ({ onClick, buttonText, submitButton }: Props) => {
             {buttonText}
           </p>
         </button>
-        <div className="absolute w-80 h-20 rounded-3xl border-[6px] border-wetCoral top-[13px] md:border-4 md:rounded-2xl md:w-56 md:h-14 md:top-2"></div>
       </div>
     </>
   );
