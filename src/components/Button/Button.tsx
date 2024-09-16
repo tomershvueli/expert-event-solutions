@@ -1,40 +1,26 @@
-import buttonArrow from "../../assets/button-arrow.svg";
-
 interface Props {
-  onSubmit?: () => void;
   onClick?: () => void;
   buttonText?: string;
-  arrowButton?: boolean;
   submitButton?: boolean;
 }
 
-export const Button = ({
-  onSubmit,
-  onClick,
-  buttonText,
-  arrowButton,
-  submitButton,
-}: Props) => {
+export const Button = ({ onClick, buttonText, submitButton }: Props) => {
   return (
     <>
-      <button
-        className={`relative w-60 h-16 rounded-2xl border-4 border-lightGingerFlower bg-lightGingerFlower`}
-        type={submitButton ? "submit" : "button"}
-        onClick={submitButton ? onSubmit : onClick}
-      >
-        <p
-          className={`font-title text-wheat font-bold leading-8 text-button-lg`}
+      <div className="relative">
+        <button
+          className={`relative z-999 w-80 h-20 rounded-3xl border-6 border-lightGingerFlower bg-lightGingerFlower md:border-4 md:rounded-2xl md:w-56 md:h-14`}
+          type={submitButton ? "submit" : "button"}
+          onClick={onClick}
         >
-          {buttonText}
-        </p>
-        {arrowButton && (
-          <img className="" src={buttonArrow} alt="button arrow" />
-        )}
-      </button>
-
-      {!arrowButton && (
-        <div className="absolute  w-60 h-10 rounded-2xl border-4 border-wetCoral top-8"></div>
-      )}
+          <p
+            className={`font-title text-wheat font-bold leading-8 text-button-lg md:text-button-sm md:leading-5`}
+          >
+            {buttonText}
+          </p>
+        </button>
+        <div className="absolute w-80 h-20 rounded-3xl border-[6px] border-wetCoral top-[13px] md:border-4 md:rounded-2xl md:w-56 md:h-14 md:top-2"></div>
+      </div>
     </>
   );
 };

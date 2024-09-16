@@ -1,8 +1,12 @@
-import React from "react";
-import {} from "react-router-dom";
 import { Button } from "../Button/Button";
 
 const App: React.FC = () => {
-  return <Button />;
+  return (
+    <Button
+      onClick={() => console.log("Button clicked!")}
+      buttonText="Submit"
+      submitButton={true}
+    />
+  );
 };
 export default App;

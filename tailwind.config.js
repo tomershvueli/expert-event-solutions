@@ -40,6 +40,7 @@ export default {
         "button-lg": "24px",
         "paragraph-lg": "22px",
         "paragraph-sm": "20px",
+        "button-sm": "18px",
         "form-text": "16px",
       },
       fontFamily: {

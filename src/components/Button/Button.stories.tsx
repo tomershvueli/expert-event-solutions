@@ -1,7 +1,6 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react/*";
 import { BrowserRouter } from "react-router-dom";
 import { Button } from "./Button";
-import "./Button.css";
 
 export default {
   title: "components/Button",
@@ -11,12 +10,13 @@ export default {
 const Template: StoryFn = (args) => {
   return (
     <BrowserRouter>
-      <Button onSubmit={args.submit} onClick={args.click} />
+      <Button {...args} />
     </BrowserRouter>
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  submit: { key: "value" },
+export const ButtonComponent = Template.bind({});
+ButtonComponent.args = {
+  buttonText: "Submit",
+  submitButton: true,
 };
