@@ -19,7 +19,6 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
         }`}
     >
       <div
-        //  removed from class name below / removed from isMobile : gap-[287px]
         className={`flex flex-row gap-[287px] lg:gap-[190px] md:gap-[100px] sm:gap-[26px] sm:flex-col sm:max-w-fit sm:self-center ${
           isMobile ? "flex-col !gap-[26px]" : "flex-row"
         }`}
