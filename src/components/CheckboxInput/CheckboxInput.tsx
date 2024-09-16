@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import checkBox from "../../images/checkbox.svg";
 import check from "../../images/check.svg";
 import { FormValues } from "../Form/Form";
 
@@ -17,6 +16,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
     setValue,
     getValues,
   } = useFormContext<FormValues>();
+
   const [isClicked, setIsClicked] = useState(getValues(name) || false);
 
   const handleIsClicked = () => {
@@ -27,13 +27,12 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
   };
 
   useEffect(() => {
-    console.log("Checkbox state from getValues:", getValues(name));
-    setIsClicked(getValues(name));
+    setIsClicked(getValues(name)); // Sync the checkbox state with the form values
   }, [getValues, name, isSubmitted]);
 
   useEffect(() => {
     if (isSubmitted) {
-      setIsClicked(false);
+      setIsClicked(false); // Reset checkbox state after submission
     }
   }, [isSubmitted]);
 
@@ -41,9 +40,9 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex items-start gap-2.5">
+      <div className="flex items-start gap-2.5 ">
         <div
-          className="relative cursor-pointer h-[20px] w-[20px]"
+          className="relative cursor-pointer min-h-[27px] h-[27px] min-w-[27px]"
           onClick={handleIsClicked}
         >
           <input
@@ -51,21 +50,22 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
             {...register(name, {
               required: "You must agree to the terms",
             })}
-            className="hidden"
+            className="hidden" // Hide the native checkbox
           />
-          <img src={checkBox} className="max-w-none h-[20px]" alt="checkbox" />
-          {isClicked && (
-            <img
-              src={check}
-              className="absolute top-0 left-0 max-w-none h-[20px]"
-              alt="checked"
-            />
-          )}
+          <div className="absolute inset-0 bg-offWhite rounded-[4px]">
+            {isClicked && (
+              <img
+                src={check}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[22px] w-[23px]"
+                alt="checked"
+              />
+            )}
+          </div>
         </div>
         <span>{label}</span>
       </div>
       {hasError && !isClicked && (
-        <span className="text-wetCoral">{hasError}</span>
+        <span className="text-gingerFlower">{hasError}</span>
       )}
     </div>
   );
