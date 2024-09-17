@@ -1,6 +1,7 @@
 import facebook from "../../images/facebook.svg";
 import instagram from "../../images/instagram.svg";
 import linkedin from "../../images/linkedin.svg";
+import { gql, useQuery } from "@apollo/client";
 
 interface Props {
   screenWidth?: "mobile" | "desktop";
@@ -8,6 +9,37 @@ interface Props {
 
 export const Footer = ({ screenWidth = "desktop" }: Props) => {
   const isMobile = screenWidth === "mobile";
+
+  const GetCompanyContactInfo = gql`
+    query GetCompanyContactInfo {
+      companyContactInfos {
+        companyName
+        contactName
+        contactEmail
+        contactPhone
+        isPrimaryContact
+        country
+        city
+        address
+        createdAt
+        updatedAt
+        status
+      }
+    }
+  `;
+
+  function useCompanyContactInfo() {
+    const { loading, error, data } = useQuery(GetCompanyContactInfo);
+
+    if (loading) return "Loading...";
+    if (error) return `Error! ${error.message}`;
+
+    console.log("Response data:", data); // Log the entire response
+    return data ? data.companyContactInfos : null;
+  }
+
+  const companyContactInfo = useCompanyContactInfo();
+  console.log(companyContactInfo);
 
   return (
     <footer
@@ -34,16 +66,15 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
                 isMobile ? "text-center" : "text-left"
               }`}
             >
-              Expert Event Solutions
+              {companyContactInfo[0].companyName}
             </p>
             <a
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
+              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
                 isMobile ? "text-center" : "text-left"
               }`}
               onClick={() => console.log("clicked address")}
             >
-              260 Daytona Blvd, Daytona <br /> Beach, Florida 32114, United{" "}
-              <br /> States
+              {companyContactInfo[0].address}
             </a>
             <p
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
@@ -51,7 +82,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               }`}
               onClick={() => console.log("clicked email")}
             >
-              Info@experteventsolutions.com
+              {companyContactInfo[0].contactEmail}
             </p>
           </div>
         </div>
@@ -115,7 +146,8 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © 2022. Expert Event Solutions - All rights reserved.
+        Copyright © 2022. {companyContactInfo?.[0]?.companyName} - All rights
+        reserved.
       </p>
     </footer>
   );
