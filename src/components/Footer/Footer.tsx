@@ -66,7 +66,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
                 isMobile ? "text-center" : "text-left"
               }`}
             >
-              {companyContactInfo[0].companyName}
+              {companyContactInfo ? companyContactInfo[0]?.companyName : ""}
             </p>
             <a
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
@@ -74,7 +74,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               }`}
               onClick={() => console.log("clicked address")}
             >
-              {companyContactInfo[0].address}
+              {companyContactInfo ? companyContactInfo[0]?.address : ""}
             </a>
             <p
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
@@ -82,7 +82,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               }`}
               onClick={() => console.log("clicked email")}
             >
-              {companyContactInfo[0].contactEmail}
+              {companyContactInfo ? companyContactInfo[0]?.contactEmail : ""}
             </p>
           </div>
         </div>
@@ -146,7 +146,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © 2022. {companyContactInfo?.[0]?.companyName} - All rights
+        Copyright © 2022. {companyContactInfo[0]?.companyName} - All rights
         reserved.
       </p>
     </footer>
