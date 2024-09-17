@@ -32,7 +32,7 @@ export default {
         lightGingerFlower: "#CF554E",
       },
       fontSize: {
-        "desktop-title": "72px",
+        "welcome-title": "72px",
         "contact-header": "56px",
         "ees-logo": "50px",
         "section-header": "48px",
