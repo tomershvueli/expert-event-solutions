@@ -116,7 +116,8 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © 2022. Expert Event Solutions - All rights reserved.
+        Copyright © {new Date().getFullYear()}. Expert Event Solutions - All
+        rights reserved.
       </p>
     </footer>
   );
