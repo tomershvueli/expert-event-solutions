@@ -16,7 +16,7 @@ export function Header({ screenWidth }: Props) {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setWindowWidth(width); // Track window width
+      setWindowWidth(width);
       setShowMenuIcon(width < 600 ? true : false);
     };
     handleResize();
@@ -29,7 +29,7 @@ export function Header({ screenWidth }: Props) {
   return (
     <>
       <div
-        className={`flex justify-between items-center w-full h-[74px] px-[128px] lg:p-[64px] py-[80px] bg-wheat
+        className={`fixed top-0 left-0 flex justify-between items-center w-full h-[74px] pt-[45px] pb-[97px] lg:px-[25px] bg-wheat
           border-x-4 border-transparent
           ${
             showMenu && windowWidth < 600
@@ -45,7 +45,6 @@ export function Header({ screenWidth }: Props) {
           `}
       >
         <Link to="/">
-          {/* showMenu then add className with border-x-red */}
           <img
             src={EES}
             alt="EES Logo"
@@ -100,7 +99,7 @@ export function Header({ screenWidth }: Props) {
       </div>
       {(showMenu && windowWidth < 600) || isMobile ? (
         <div
-          className="flex flex-col gap-[20px] bg-wheat border-b-4 border-x-4 border-lightGingerFlower
+          className="fixed left-0 right-0 top-[140px] flex flex-col gap-[20px] bg-wheat border-b-4 border-x-4 border-lightGingerFlower
             rounded-b-[80px]"
         >
           <div className="flex flex-col gap-[20px] pt-[100px] pb-[190px]">
