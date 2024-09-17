@@ -1,31 +1,14 @@
 import facebook from "../../images/facebook.svg";
 import instagram from "../../images/instagram.svg";
 import linkedin from "../../images/linkedin.svg";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GetCompanyContactInfo } from "../../graphql/get-company-contact-info";
 interface Props {
   screenWidth?: "mobile" | "desktop";
 }
 
 export const Footer = ({ screenWidth = "desktop" }: Props) => {
   const isMobile = screenWidth === "mobile";
-
-  const GetCompanyContactInfo = gql`
-    query GetCompanyContactInfo {
-      companyContactInfos {
-        companyName
-        contactName
-        contactEmail
-        contactPhone
-        isPrimaryContact
-        country
-        city
-        address
-        createdAt
-        updatedAt
-        status
-      }
-    }
-  `;
 
   function useCompanyContactInfo() {
     const { loading, error, data } = useQuery(GetCompanyContactInfo);
@@ -143,8 +126,9 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © 2022. {companyContactInfo[0]?.companyName} - All rights
-        reserved.
+        Copyright © 2022.{" "}
+        {companyContactInfo ? companyContactInfo[0]?.companyName : ""} - All
+        rights reserved.
       </p>
     </footer>
   );
