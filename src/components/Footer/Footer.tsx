@@ -2,7 +2,6 @@ import facebook from "../../images/facebook.svg";
 import instagram from "../../images/instagram.svg";
 import linkedin from "../../images/linkedin.svg";
 import { gql, useQuery } from "@apollo/client";
-
 interface Props {
   screenWidth?: "mobile" | "desktop";
 }
@@ -34,12 +33,10 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
     if (loading) return "Loading...";
     if (error) return `Error! ${error.message}`;
 
-    console.log("Response data:", data); // Log the entire response
     return data ? data.companyContactInfos : null;
   }
 
   const companyContactInfo = useCompanyContactInfo();
-  console.log(companyContactInfo);
 
   return (
     <footer

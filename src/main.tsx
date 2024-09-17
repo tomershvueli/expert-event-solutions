@@ -10,6 +10,21 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+window.onload = async () => {
+  try {
+    await client.refetchQueries({
+      updateCache: (cache) => cache.reset(),
+      include: "all",
+      onQueryUpdated: () => {
+        return true;
+      },
+      optimistic: true,
+    });
+  } catch {
+    console.log("failed to refetch");
+  }
+};
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
