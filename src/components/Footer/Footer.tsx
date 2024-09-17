@@ -45,14 +45,15 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               260 Daytona Blvd, Daytona <br /> Beach, Florida 32114, United{" "}
               <br /> States
             </a>
-            <p
+            <a
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
                 isMobile ? "text-center" : "text-left"
               }`}
               onClick={() => {}}
+              href="mailto:Info@experteventsolutions.com"
             >
               Info@experteventsolutions.com
-            </p>
+            </a>
           </div>
         </div>
 
