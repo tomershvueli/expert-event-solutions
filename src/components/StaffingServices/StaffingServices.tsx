@@ -31,7 +31,7 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
       <Header />
       {isMobile && windowWidth}
       <div className="bg-wheat relative">
-        <h1 className="mt-[76px] pt-[60px] tracking-tighter text-welcome-title font-title text-center text-wetCoral leading-[86px] font-bold pb-[80px]">
+        <h1 className="px-[16px] mt-[76px] pt-[60px] tracking-tighter text-welcome-title font-title text-center text-wetCoral leading-[86px] font-bold pb-[80px]">
           Staffing Services
         </h1>
         <div className="flex justify-center">
@@ -52,21 +52,24 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
           without a hitch. Let us bring our experience to the table and help you
           make the most of your event.
         </p>
-        <div>
-          <div className="flex flex-col items-center border-[6px]">
-            <h2 className="leading-[67px] tracking-tighter text-center text-contact-header font-title font-bold text-wetCoral">
-              Tell us about your event
-            </h2>
-            <p className="">
-              Send the Team a Note. Tell us a little more about what you are
-              looking for.
-            </p>
-            <Button
-              onClick={onClick}
-              buttonText="Drop us a line"
-              submitButton={false}
-            />
-          </div>
+        <div className="relative">
+          {/* <div className="absolute border-[6px] w-[minmax(343px, 1174px)] px-[16px] h-[609px]">
+          div for the red lip
+          </div> */}
+        </div>
+        <div className="flex flex-col items-center px-[16px] pt-[120px] pb-[133px]">
+          <h2 className="max-w-600px leading-[67px] tracking-tighter text-center text-contact-header font-title font-bold text-wetCoral">
+            Tell us about your event
+          </h2>
+          <p className="pt-[24px] pb-[40px] max-w-438px tracking-tight pt-[40px] max-w-[438px] text-center mx-auto px-[16px] font-text text-paragraph-lg leading-[28px] font-normal text-lightBlack">
+            Send the Team a Note. Tell us a little more about what you are
+            looking for.
+          </p>
+          <Button
+            onClick={onClick}
+            buttonText="Drop us a line"
+            submitButton={false}
+          />
         </div>
       </div>
       <Footer />
