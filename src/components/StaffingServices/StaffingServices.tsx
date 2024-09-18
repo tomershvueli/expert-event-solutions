@@ -44,7 +44,7 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
           concerts, to art festivals, farmers markets, running and triathlon
           events, weddings, corporate events and family functions.
         </p>
-        <p className="tracking-tight pt-[40px] max-w-[782px] text-center mx-auto px-[16px] font-text text-paragraph-lg leading-[28px] font-normal text-lightBlack">
+        <p className="tracking-tight pt-[40px] pb-[80px] max-w-[782px] text-center mx-auto px-[16px] font-text text-paragraph-lg leading-[28px] font-normal text-lightBlack">
           Let us help you with your event. We can custom design a package to
           provide you with as much support as you need from planning, and
           permitting to staffing to ordering supplies or coordinating rentals.
@@ -52,10 +52,15 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
           without a hitch. Let us bring our experience to the table and help you
           make the most of your event.
         </p>
-        <div className="relative">
+        <div className="flex justify-center relative mx-auto max-w-[1180px] py-[80px] px-[24px]">
           {/* <div className="absolute border-[6px] w-[minmax(343px, 1174px)] px-[16px] h-[609px]">
           div for the red lip
           </div> */}
+          <ul className="flex flex-wrap w-fit px-[24px]">
+            <li className="h-[256px] w-[343px]"></li>
+            <li className="h-[256px] w-[343px]"></li>
+            <li className="h-[256px] w-[343px]"></li>
+          </ul>
         </div>
         <div className="flex flex-col items-center px-[16px] pt-[120px] pb-[133px]">
           <h2 className="max-w-600px leading-[67px] tracking-tighter text-center text-contact-header font-title font-bold text-wetCoral">
