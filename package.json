@@ -31,7 +31,6 @@
     "@headlessui/tailwindcss": "^0.2.0",
     "@heroicons/react": "^2.0.18",
     "@keystone-6/document-renderer": "^1.1.2",
-    "@storybook/client-api": "^7.6.17",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
