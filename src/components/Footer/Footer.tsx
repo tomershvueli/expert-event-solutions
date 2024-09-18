@@ -20,6 +20,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
   }
 
   const companyContactInfo = useCompanyContactInfo();
+  console.log(companyContactInfo);
 
   return (
     <footer
@@ -35,37 +36,39 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "flex-col !gap-[26px]" : "flex-row"
         }`}
       >
-        <div
-          className={`flex flex-col gap-[40px] sm:gap-[26px] ${
-            isMobile ? "gap-[26px]" : "gap-[40px]"
-          }`}
-        >
-          <div className="flex flex-col gap-[24px] ">
-            <p
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
-                isMobile ? "text-center" : "text-left"
-              }`}
-            >
-              {companyContactInfo ? companyContactInfo[0]?.companyName : ""}
-            </p>
-            <a
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
-                isMobile ? "text-center" : "text-left"
-              }`}
-              onClick={() => console.log("clicked address")}
-            >
-              {companyContactInfo ? companyContactInfo[0]?.address : ""}
-            </a>
-            <p
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
-                isMobile ? "text-center" : "text-left"
-              }`}
-              onClick={() => console.log("clicked email")}
-            >
-              {companyContactInfo ? companyContactInfo[0]?.contactEmail : ""}
-            </p>
+        {companyContactInfo && companyContactInfo[0] ? (
+          <div
+            className={`flex flex-col gap-[40px] sm:gap-[26px] ${
+              isMobile ? "gap-[26px]" : "gap-[40px]"
+            }`}
+          >
+            <div className="flex flex-col gap-[24px] ">
+              <p
+                className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
+                  isMobile ? "text-center" : "text-left"
+                }`}
+              >
+                {companyContactInfo ? companyContactInfo[0]?.companyName : ""}
+              </p>
+              <a
+                className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
+                  isMobile ? "text-center" : "text-left"
+                }`}
+                onClick={() => console.log("clicked address")}
+              >
+                {companyContactInfo ? companyContactInfo[0]?.address : ""}
+              </a>
+              <p
+                className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
+                  isMobile ? "text-center" : "text-left"
+                }`}
+                onClick={() => console.log("clicked email")}
+              >
+                {companyContactInfo ? companyContactInfo[0]?.contactEmail : ""}
+              </p>
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <div className="flex flex-col gap-[24px]">
           <p
