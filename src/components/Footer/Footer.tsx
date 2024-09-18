@@ -129,7 +129,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © 2022.{" "}
+        Copyright © {new Date().getFullYear()}.{" "}
         {companyContactInfo ? companyContactInfo[0]?.companyName : ""} - All
         rights reserved.
       </p>
