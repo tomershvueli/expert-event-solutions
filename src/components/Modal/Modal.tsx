@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ModalOverlay } from "./ModalOverlay";
 
 export interface ModalProps {
@@ -9,35 +9,36 @@ export interface ModalProps {
 }
 
 export const Modal = ({ children, name, isOpen, onClose }: ModalProps) => {
-  const [isVisible, setIsVisible] = useState(isOpen); // Track when the modal should be visible
+  const [isAnimating, setIsAnimating] = useState(false); // Track if the animation is running
+  const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     if (isOpen) {
-      // When isOpen changes to true, make the modal visible
-      setIsVisible(true);
-    } else {
-      // When isOpen changes to false, wait for the closing animation, then hide the modal
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-      }, 700); // Match with your closing animation duration
-      return () => clearTimeout(timer);
+      setIsAnimating(true); // Start the animation when modal opens
     }
   }, [isOpen]);
 
-  if (!isVisible) {
-    return null; // If not visible, don't render the modal
-  }
+  // Handle the animation end to control when to hide the modal
+  const handleAnimationEnd = () => {
+    if (!isOpen) {
+      setIsAnimating(false); // Stop rendering the modal after the animation finishes
+    }
+  };
 
   return (
     <ModalOverlay
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+      className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${
+        isOpen || isAnimating ? "visible" : "invisible"
+      }`} // Keep it visible if open or animating
       onClick={onClose}
     >
       <dialog
+        ref={dialogRef}
         className={`flex flex-col w-[467px] h-[582px] p-[28px] gap-[7.47px] rounded-[40px] bg-wheat ${
           isOpen ? "animate-slide-up" : "animate-slide-down"
         } ${name}`}
         onClick={(e) => e.stopPropagation()}
+        onAnimationEnd={handleAnimationEnd} // Hide after animation ends
       >
         {children}
       </dialog>

@@ -58,7 +58,7 @@ export default {
       },
       animation: {
         "slide-up": "slide-up 0.7s ease-in-out forwards",
-        "slide-down": "slide-down 0.7s ease-in-out backwards",
+        "slide-down": "slide-down 0.7s ease-in-out forwards",
       },
     },
   },
