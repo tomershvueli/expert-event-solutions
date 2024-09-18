@@ -31,7 +31,7 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
       <Header />
       {isMobile && windowWidth}
       <div className="bg-wheat relative">
-        <h1 className="mt-[142px] tracking-tighter text-welcome-title font-title text-center text-wetCoral leading-[86px] font-bold pb-[80px]">
+        <h1 className="mt-[76px] pt-[60px] tracking-tighter text-welcome-title font-title text-center text-wetCoral leading-[86px] font-bold pb-[80px]">
           Staffing Services
         </h1>
         <div className="flex justify-center">
@@ -52,18 +52,22 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
           without a hitch. Let us bring our experience to the table and help you
           make the most of your event.
         </p>
-        <div></div>
-        <div></div>
-        <h2>Tell us about your event</h2>
-        <p className="">
-          Send the Team a Note. Tell us a little more about what you are looking
-          for.
-        </p>
-        <Button
-          onClick={onClick}
-          buttonText="Drop us a line"
-          submitButton={false}
-        />
+        <div>
+          <div className="flex flex-col items-center border-[6px]">
+            <h2 className="leading-[67px] tracking-tighter text-center text-contact-header font-title font-bold text-wetCoral">
+              Tell us about your event
+            </h2>
+            <p className="">
+              Send the Team a Note. Tell us a little more about what you are
+              looking for.
+            </p>
+            <Button
+              onClick={onClick}
+              buttonText="Drop us a line"
+              submitButton={false}
+            />
+          </div>
+        </div>
       </div>
       <Footer />
     </>
