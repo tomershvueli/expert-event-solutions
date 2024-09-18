@@ -1,18 +1,31 @@
-import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import Form from "./Form";
-
-import { FormValues } from "./Form";
-
+import { BrowserRouter } from "react-router-dom";
+import { FormPhoneInputComponent } from "./FormTextInputComponent";
+import { FormEmailInputComponent } from "./FormTextInputComponent";
 export default {
-  title: "Components/Form",
-  component: Form,
+  title: "components/Form",
+  components: { FormPhoneInputComponent, FormEmailInputComponent },
+  args: {},
 } as Meta;
 
-export const Default: StoryFn = () => (
-  <Form
-    submit={(data: FormValues) =>
-      console.log("Form submitted with data:", data)
-    }
-  ></Form>
-);
+const PhoneInputTemplate: StoryFn = () => {
+  return (
+    <BrowserRouter>
+      <FormPhoneInputComponent />
+    </BrowserRouter>
+  );
+};
+
+const EmailInputTemplate: StoryFn = () => {
+  return (
+    <BrowserRouter>
+      <FormEmailInputComponent />
+    </BrowserRouter>
+  );
+};
+
+export const FormPhoneInput = PhoneInputTemplate.bind({});
+FormPhoneInput.args = {};
+
+export const FormEmailInput = EmailInputTemplate.bind({});
+FormEmailInput.args = {};

@@ -1,37 +1,71 @@
-import React from "react";
-import { useForm, FormProvider } from "react-hook-form";
-
-export type FormValues = {
-  description: string;
-  agreeToTerms: boolean;
-};
+import { useForm, FieldValues } from "react-hook-form";
 
 interface FormProps {
-  submit: (data: FormValues) => void;
+  className?: string;
   children?: React.ReactNode;
-  className?: string; // Add className for dynamic styling
+  onSubmit: (data: FieldValues) => void;
 }
 
-const Form: React.FC<FormProps> = ({ submit, children, className }) => {
-  const methods = useForm<FormValues>({
-    mode: "onBlur",
-  });
-
-  const onSubmit = methods.handleSubmit((data) => {
-    submit(data);
-    methods.reset(); // Reset form state after submission
-  });
-
+export const Form = ({ className, children, ...rest }: FormProps) => {
   return (
-    <FormProvider {...methods}>
-      <form
-        className={`flex flex-col gap-[7.47px] ${className}`}
-        onSubmit={onSubmit}
-      >
-        {children}
-      </form>
-    </FormProvider>
+    <form className={`flex flex-col gap-[7.47px] ${className}`} {...rest}>
+      {children}
+    </form>
   );
 };
 
-export default Form;
+interface TextInputProps {
+  placeholder?: string;
+  type: "email" | "tel";
+  register: ReturnType<typeof useForm>["register"];
+  errors: ReturnType<typeof useForm>["formState"]["errors"];
+  handleSubmit: ReturnType<typeof useForm>["handleSubmit"];
+  onSubmit: (data: FieldValues) => void;
+}
+
+Form.TextInput = ({
+  placeholder,
+  type,
+  register,
+  errors,
+  handleSubmit,
+  onSubmit,
+}: TextInputProps) => {
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSubmit(onSubmit)();
+    }
+  };
+
+  const validationRules = {
+    required: type === "tel" ? "Phone number is required" : "Email is required",
+    pattern: {
+      value:
+        type === "tel"
+          ? /^[+]?[0-9\s\-().]{10,15}$/
+          : /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      message:
+        type === "tel" ? "Invalid phone number format" : "Invalid email format",
+    },
+  };
+  return (
+    <div className="flex flex-col ">
+      <input
+        className={`w-[411.03px] h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px] text-form-text bg-offWhite  ${
+          errors[type]
+            ? "border border-lightGingerFlower focus:outline-lightGingerFlower"
+            : ""
+        }`}
+        type={type}
+        placeholder={placeholder}
+        {...register(type, validationRules)}
+        onKeyDown={handleEnter}
+      />
+      {errors[type] && (
+        <span className="text-red text-form-text mt-1 text-lightGingerFlower">
+          {errors[type]?.message?.toString()}
+        </span>
+      )}
+    </div>
+  );
+};
