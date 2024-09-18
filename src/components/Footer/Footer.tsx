@@ -40,19 +40,20 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
                 isMobile ? "text-center" : "text-left"
               }`}
-              onClick={() => console.log("clicked address")}
+              onClick={() => {}}
             >
               260 Daytona Blvd, Daytona <br /> Beach, Florida 32114, United{" "}
               <br /> States
             </a>
-            <p
+            <a
               className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
                 isMobile ? "text-center" : "text-left"
               }`}
-              onClick={() => console.log("clicked email")}
+              onClick={() => {}}
+              href="mailto:Info@experteventsolutions.com"
             >
               Info@experteventsolutions.com
-            </p>
+            </a>
           </div>
         </div>
 
@@ -61,7 +62,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             className={`font-text text-paragraph-sm sm:hidden ${
               isMobile ? "hidden" : "block"
             }`}
-            onClick={() => console.log("clicked contacts")}
+            onClick={() => {}}
           >
             Contacts
           </p>
@@ -69,7 +70,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             className={`font-text text-paragraph-sm sm:hidden ${
               isMobile ? "hidden" : "block"
             }`}
-            onClick={() => console.log("clicked rental conditions")}
+            onClick={() => {}}
           >
             Rental Conditions
           </p>
@@ -90,19 +91,19 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               <img
                 className="cursor-pointer"
                 src={instagram}
-                onClick={() => console.log("clicked instagram")}
+                onClick={() => {}}
                 alt="Instagram"
               />
               <img
                 className="cursor-pointer"
                 src={facebook}
-                onClick={() => console.log("clicked facebook")}
+                onClick={() => {}}
                 alt="Facebook"
               />
               <img
                 className="cursor-pointer"
                 src={linkedin}
-                onClick={() => console.log("clicked linkedin")}
+                onClick={() => {}}
                 alt="LinkedIn"
               />
             </div>
@@ -115,7 +116,8 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © 2022. Expert Event Solutions - All rights reserved.
+        Copyright © {new Date().getFullYear()}. Expert Event Solutions - All
+        rights reserved.
       </p>
     </footer>
   );
