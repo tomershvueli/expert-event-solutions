@@ -52,14 +52,45 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
           without a hitch. Let us bring our experience to the table and help you
           make the most of your event.
         </p>
-        <div className="flex justify-center relative mx-auto max-w-[1180px] py-[80px] px-[24px]">
+        <div className="bg-gingerFlower rounded-[60px] flex justify-center relative mx-auto max-w-[1180px] py-[80px] px-[24px]">
           {/* <div className="absolute border-[6px] w-[minmax(343px, 1174px)] px-[16px] h-[609px]">
           div for the red lip
           </div> */}
-          <ul className="flex flex-wrap w-fit px-[24px]">
-            <li className="h-[256px] w-[343px]"></li>
-            <li className="h-[256px] w-[343px]"></li>
-            <li className="h-[256px] w-[343px]"></li>
+          <ul className="flex flex-wrap w-fit px-[24px] justify-center">
+            <li className="h-[256px] w-[343px] flex flex-col gap-[24px]">
+              <h3 className="text-center font-text text-[42px] leading-[50px] font-bold text-wheat tracking-tighter">
+                1.
+              </h3>
+              <p className="w-[331px] font-title text-wheat text-[28px] leading-[34px] font-bold tracking-tighter text-center">
+                Planning the event, managing everything from logistics to decor
+              </p>
+              <p className="w-[331px] font-text text-wheat text-paragraph-lg leading-[26px] font-normal tracking-tight text-center">
+                to ensure a seamless and memorable experience.
+              </p>
+            </li>
+            <li className="h-[256px] w-[343px] flex flex-col gap-[24px]">
+              <h3 className="text-center font-text text-[42px] leading-[50px] font-bold text-wheat tracking-tighter">
+                2.
+              </h3>
+              <p className="w-[331px] font-title text-wheat text-[28px] leading-[34px] font-bold tracking-tighter text-center">
+                Post-event support to ensure everything wraps up smoothly
+              </p>
+              <p className="w-[331px] font-text text-wheat text-paragraph-lg leading-[26px] font-normal tracking-tight text-center">
+                Our commitment doesn't end when the event does.
+              </p>
+            </li>
+            <li className="h-[256px] w-[343px] flex flex-col gap-[24px] items-center">
+              <h3 className="text-center font-text text-[42px] leading-[50px] font-bold text-wheat tracking-tighter">
+                3.
+              </h3>
+              <p className="w-[290px] font-title text-wheat text-[28px] leading-[34px] font-bold tracking-tighter text-center">
+                We tailor every event to your theme or request
+              </p>
+              <p className="w-[331px] font-text text-wheat text-paragraph-lg leading-[26px] font-normal tracking-tight text-center">
+                We pride ourselves on our individual approach to event
+                organizing
+              </p>
+            </li>
           </ul>
         </div>
         <div className="flex flex-col items-center px-[16px] pt-[120px] pb-[133px]">
