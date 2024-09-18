@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import { Header } from "../Header/Header";
 import { Image } from "../Image/Image";
 import { Footer } from "../Footer/Footer";
+import { Button } from "../Button/Button";
 import outdoor from "../../assets/image-outdoor1.png";
 
 interface Props {
   screenWidth?: "mobile" | "desktop";
+  onClick?: () => void;
 }
 
-export function StaffingServices({ screenWidth }: Props) {
+export function StaffingServices({ screenWidth, onClick }: Props) {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const isMobile = screenWidth === "mobile";
 
@@ -53,10 +55,15 @@ export function StaffingServices({ screenWidth }: Props) {
         <div></div>
         <div></div>
         <h2>Tell us about your event</h2>
-        <p>
+        <p className="">
           Send the Team a Note. Tell us a little more about what you are looking
           for.
         </p>
+        <Button
+          onClick={onClick}
+          buttonText="Drop us a line"
+          submitButton={false}
+        />
       </div>
       <Footer />
     </>
