@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./global/default.css";
 import { Header } from "./components/Header/Header";
 import { RentalEquipment } from "./components/RentalEquipment/RentalEquipment";
+import { Footer } from "./components/Footer/Footer";
 
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<div>Home Route</div>} />
         </Routes> */}
         <RentalEquipment />
+        <Footer />
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
