@@ -1,4 +1,3 @@
-import EES from "../../images/EES.svg";
 import MenuIcon from "../../images/EESMenuIcon.svg";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -45,14 +44,16 @@ export function Header({ screenWidth }: Props) {
           `}
       >
         <Link to="/">
-          <img
-            src={EES}
-            alt="EES Logo"
-            className={`lg:w-[75px]${
-              windowWidth < 600 ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""
-            }
-              ${isMobile ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""}`}
-          ></img>
+          <h1
+            className={`cursor-pointer text-lightGingerFlower text-center font-title text-ees-logo font-bold leading-[50px] lg:text-section-subheader sm:text-subsection-title sm:leading-[26px] sm:mx-[8.4px] sm:my-[6.3px]
+              ${
+                isMobile
+                  ? " text-subsection-title leading-[26px] mx-[8.4px] my-[6.3px]"
+                  : ""
+              }`}
+          >
+            EES
+          </h1>
         </Link>
         <ul className="flex justify-between items-center p-0 m-0 gap-[20px]">
           {showMenuIcon || isMobile ? (
