@@ -75,7 +75,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             className={`font-text text-paragraph-sm sm:hidden ${
               isMobile ? "hidden" : "block"
             }`}
-            onClick={() => console.log("clicked contacts")}
+            onClick={() => {}}
           >
             Contacts
           </p>
@@ -83,7 +83,7 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             className={`font-text text-paragraph-sm sm:hidden ${
               isMobile ? "hidden" : "block"
             }`}
-            onClick={() => console.log("clicked rental conditions")}
+            onClick={() => {}}
           >
             Rental Conditions
           </p>
@@ -104,19 +104,19 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
               <img
                 className="cursor-pointer"
                 src={instagram}
-                onClick={() => console.log("clicked instagram")}
+                onClick={() => {}}
                 alt="Instagram"
               />
               <img
                 className="cursor-pointer"
                 src={facebook}
-                onClick={() => console.log("clicked facebook")}
+                onClick={() => {}}
                 alt="Facebook"
               />
               <img
                 className="cursor-pointer"
                 src={linkedin}
-                onClick={() => console.log("clicked linkedin")}
+                onClick={() => {}}
                 alt="LinkedIn"
               />
             </div>
