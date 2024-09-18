@@ -18,6 +18,8 @@ const Template: StoryFn = () => {
         <TextAreaInput
           name="description"
           placeholder="Give us some details about your event"
+          required={true}
+          requiredError="This field is required"
         />
       </form>
     </FormProvider>

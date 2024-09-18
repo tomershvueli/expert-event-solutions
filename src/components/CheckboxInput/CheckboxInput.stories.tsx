@@ -24,6 +24,8 @@ export const Default: StoryFn = () => {
         <CheckboxInput
           name="agreeToTerms"
           label="I agree to receive automated calls or text messages from Expert Event Solutions LLC in response to my inquiry. Msg & data rates may apply."
+          required={true}
+          requiredError="You must agree to the terms"
         />
         <button type="submit">Submit</button>
       </form>

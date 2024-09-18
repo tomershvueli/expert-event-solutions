@@ -6,10 +6,17 @@ import { FormValues } from "../Form/Form";
 interface CheckboxInputProps {
   name: keyof FormValues;
   label: string;
+  required?: boolean; // Optional prop for making the checkbox required
+  requiredError?: string; // Custom error message for the required validation
   error?: { message: string };
 }
 
-const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
+const CheckboxInput: React.FC<CheckboxInputProps> = ({
+  name,
+  label,
+  required = false, // Default is not required
+  requiredError = "You must agree to the terms", // Default error message
+}) => {
   const {
     register,
     formState: { errors, isSubmitted },
@@ -40,7 +47,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex items-start gap-2.5 ">
+      <div className="flex items-start gap-2.5">
         <div
           className="relative cursor-pointer min-h-[27px] h-[27px] min-w-[27px]"
           onClick={handleIsClicked}
@@ -48,7 +55,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({ name, label }) => {
           <input
             type="checkbox"
             {...register(name, {
-              required: "You must agree to the terms",
+              required: required ? requiredError : false,
             })}
             className="hidden" // Hide the native checkbox
           />

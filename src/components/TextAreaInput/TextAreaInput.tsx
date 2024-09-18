@@ -5,10 +5,17 @@ import { FormValues } from "../Form/Form";
 interface TextAreaInputProps {
   name: keyof FormValues; // Restrict name to keys of FormValues
   placeholder?: string;
+  required?: boolean;
+  requiredError?: string;
   error?: { message: string };
 }
 
-const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
+const TextAreaInput: React.FC<TextAreaInputProps> = ({
+  name,
+  placeholder,
+  required = false,
+  requiredError = "This field is required",
+}) => {
   const {
     register,
     formState: { errors },
@@ -21,7 +28,7 @@ const TextAreaInput: React.FC<TextAreaInputProps> = ({ name, placeholder }) => {
       <textarea
         className="w-full h-[167px] rounded-[12px] p-3.5 bg-offWhite mb-2.5 box-border 
         text-form-text font-roboto leading-[19.2px] resize-none outline-lightGrey"
-        {...register(name, { required: "This field is required" })}
+        {...register(name, { required: required ? requiredError : false,})}
         placeholder={placeholder}
       />
       {errorMessage && <p className="text-gingerFlower">{errorMessage}</p>}
