@@ -12,18 +12,33 @@ export const Modal = ({ children, name, isOpen, onClose }: ModalProps) => {
   const [isAnimating, setIsAnimating] = useState(false); // Track if the animation is running
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  useEffect(() => {
-    if (isOpen) {
-      setIsAnimating(true); // Start the animation when modal opens
-    }
-  }, [isOpen]);
-
   // Handle the animation end to control when to hide the modal
   const handleAnimationEnd = () => {
     if (!isOpen) {
       setIsAnimating(false); // Stop rendering the modal after the animation finishes
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsAnimating(true); // Start the animation when modal opens
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        onClose?.(); // Call onClose if Escape key is pressed and modal is open
+      }
+    };
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [isOpen, onClose]);
+
+  // Handle keyboard events
 
   return (
     <ModalOverlay

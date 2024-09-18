@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import { Modal } from "./Modal";
@@ -14,7 +14,10 @@ const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
 
   const [, updateArgs] = useArgs();
 
-  const handleClose = () => updateArgs({ isOpen: false });
+  const handleClose = useCallback(
+    () => updateArgs({ isOpen: false }),
+    [updateArgs],
+  );
 
   const handleOpen = () => updateArgs({ isOpen: true });
 
@@ -23,6 +26,20 @@ const Template: StoryFn<{ isOpen: boolean }> = ({ isOpen }) => {
   useEffect(() => {
     setModalOpen(isOpen);
   }, [isOpen]);
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && modalOpen) {
+        handleClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [modalOpen, handleClose]);
 
   return (
     <BrowserRouter>
