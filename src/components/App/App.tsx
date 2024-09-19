@@ -1,5 +1,6 @@
 import { HorizontalList } from "../HorizontalList/HorizontalList";
 import { useEffect, useState } from "react";
+import  HorizontalImage  from "../../images/HorizontalImage.svg";
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -187,6 +188,74 @@ function App() {
           },
         ];
 
+        interface AboutItem {
+          src?: string; // Optional since the fallback may not have an image
+          alt?: string;
+          title: JSX.Element | string;
+          description: JSX.Element | string;
+        }
+
+        const aboutItems: AboutItem[] = 
+        windowWidth > 800
+         ? [
+          {
+            src: HorizontalImage, 
+            alt: "Don",
+            title: (
+              <>
+                Don Stoner
+              </>
+            ),
+            description: (
+              <>
+                Co-Owner Expert Event Solutions LLC 
+              </>
+            ),
+          },
+          {
+            src: HorizontalImage, 
+            alt: "Don",
+            title: (
+              <>
+                Don Stoner
+              </>
+            ),
+            description: (
+              <>
+                Co-Owner Expert Event Solutions LLC 
+              </>
+            ),
+          },
+          {
+            src: HorizontalImage, 
+            alt: "Don",
+            title: (
+              <>
+                Don Stoner
+              </>
+            ),
+            description: (
+              <>
+                Co-Owner Expert Event Solutions LLC 
+              </>
+            ),
+          },
+          {
+            src: HorizontalImage, 
+            alt: "Don",
+            title: (
+              <>
+                Don Stoner
+              </>
+            ),
+            description: (
+              <>
+                Co-Owner Expert Event Solutions LLC 
+              </>
+            ),
+          }
+        ] : [];
+
   return (
     <div>
       {/* Home Page List */}
@@ -222,6 +291,25 @@ function App() {
             descriptionClassName="font-roboto text-[22px] text-wheat leading-[26.4px] sm:text-paragraph-sm"
           />
         ))}
+      </HorizontalList>
+      {/* image */}
+      <HorizontalList
+        containerClassName="bg-wheat"
+        unorderedListClassName="flex"
+        >
+      {aboutItems.map((item, index) => (
+        item.src && item.alt ? ( // Ensure src and alt exist
+          <HorizontalList.Item 
+            key={index}
+            image={{ src: item.src, alt: item.alt }} // Pass image as object
+            title={item.title}
+            description={item.description}
+            listClassName="flex flex-col items-center"
+            titleClassName="font-merriweather text-lg font-bold"
+            descriptionClassName="font-roboto text-sm text-gray-600"
+          />
+        ) : null // Don't render if no image
+      ))}
       </HorizontalList>
     </div>
   );
