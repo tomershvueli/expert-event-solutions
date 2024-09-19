@@ -106,7 +106,7 @@ HomePageList.args = {
       title={item.title}
       description={item.description}
       listClassName="flex flex-col w-[296px] text-center text-black tracking-[-0.02em] py-[24px] px-[24px] gap-[24px] sm:px-[12px] sm:gap-[12px]"
-      titleClassName="font-merriweather text-section-subtext text-lightGingerFlower leading-[38.4px]"
+      titleClassName="font-title text-section-subtext text-lightGingerFlower leading-[38.4px]"
       descriptionClassName="font-roboto text-[22px] text-black leading-[26.4px] sm:text-paragraph-sm "
     />
   )),

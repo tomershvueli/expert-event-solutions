@@ -124,7 +124,7 @@ StaffingServicesList.args = {
       description={item.description}
       listClassName=" flex flex-col
       text-center tracking-[-0.02em] py-[24px] px-[24px] gap-[24px] sm:px-[12px] sm:gap-[32px]"
-      titleClassName="font-merriweather text-section-subtext text-wheat leading-[38.4px] sm:text-[28px]"
+      titleClassName="font-title text-section-subtext text-wheat leading-[38.4px] sm:text-[28px]"
       descriptionClassName="font-roboto text-[22px] text-wheat leading-[26.4px] sm:text-paragraph-sm"
     />
   )),
