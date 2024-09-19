@@ -5,13 +5,14 @@ import { Button } from "../Button/Button";
 import outdoor from "../../assets/image-outdoor1.png";
 
 interface Props {
+  screenWidth?: "mobile" | "desktop";
   onClick?: () => void;
 }
 
 export function StaffingServices({ onClick }: Props) {
   return (
     <>
-      <Header />
+      <Header screenWidth="desktop" />
       <div className="bg-wheat relative">
         <h1 className="px-[16px] mt-[76px] pt-[60px] tracking-tighter text-welcome-title font-title text-center text-wetCoral leading-[86px] font-bold pb-[80px] md:text-mobile-title md:leading-[53px] md:pt-[80px] md:pb-[60px] md:px-[30px]">
           Staffing Services
