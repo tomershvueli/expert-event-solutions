@@ -8,9 +8,9 @@ export type FormValues = {
 };
 
 interface FormProps {
-  submit: (data: FormValues) => void;
   children?: React.ReactNode;
   className?: string; // Add className for dynamic styling
+  submit: (data: FormValues) => void;
 }
 
 const Form: React.FC<FormProps> = ({ submit, children, className }) => {
