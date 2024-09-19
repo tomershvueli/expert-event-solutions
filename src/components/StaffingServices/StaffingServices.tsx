@@ -52,10 +52,8 @@ export function StaffingServices({ screenWidth, onClick }: Props) {
           without a hitch. Let us bring our experience to the table and help you
           make the most of your event.
         </p>
-        <div className="bg-gingerFlower rounded-[60px] flex justify-center relative mx-auto max-w-[1180px] py-[80px] px-[24px]">
-          {/* <div className="absolute border-[6px] w-[minmax(343px, 1174px)] px-[16px] h-[609px]">
-          div for the red lip
-          </div> */}
+        <div className="bg-gingerFlower rounded-[60px] flex justify-center relative mx-auto max-w-[1180px] pt-[80px] pb-[138px] px-[24px]">
+          <div className="absolute top-[375px] border-[6px] w-[1180px] px-[16px] h-[609px] border-gingerFlower rounded-b-[60px]"></div>
           <ul className="flex flex-wrap w-fit px-[24px] justify-center">
             <li className="h-[256px] w-[343px] flex flex-col gap-[24px]">
               <h3 className="text-center font-text text-[42px] leading-[50px] font-bold text-wheat tracking-tighter">
