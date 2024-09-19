@@ -195,9 +195,7 @@ function App() {
           description: JSX.Element | string;
         }
 
-        const aboutItems: AboutItem[] = 
-        windowWidth > 800
-         ? [
+        const aboutItems: AboutItem[] = [
           {
             src: HorizontalImage, 
             alt: "Don",
@@ -217,7 +215,7 @@ function App() {
             alt: "Don",
             title: (
               <>
-                Don Stoner
+                Co-Owner 
               </>
             ),
             description: (
@@ -231,12 +229,12 @@ function App() {
             alt: "Don",
             title: (
               <>
-                Don Stoner
+                Manager
               </>
             ),
             description: (
               <>
-                Co-Owner Expert Event Solutions LLC 
+                Manager at Expert Event Solutions LLC 
               </>
             ),
           },
@@ -245,16 +243,16 @@ function App() {
             alt: "Don",
             title: (
               <>
-                Don Stoner
+                Manager 2
               </>
             ),
             description: (
               <>
-                Co-Owner Expert Event Solutions LLC 
+                Manager 2 Expert Event Solutions LLC
               </>
             ),
           }
-        ] : [];
+        ];
 
   return (
     <div>
@@ -295,7 +293,7 @@ function App() {
       {/* image */}
       <HorizontalList
         containerClassName="bg-wheat"
-        unorderedListClassName="flex"
+        unorderedListClassName="flex gap-[86px] justify-center"
         >
       {aboutItems.map((item, index) => (
         item.src && item.alt ? ( // Ensure src and alt exist
@@ -304,9 +302,10 @@ function App() {
             image={{ src: item.src, alt: item.alt }} // Pass image as object
             title={item.title}
             description={item.description}
-            listClassName="flex flex-col items-center"
-            titleClassName="font-merriweather text-lg font-bold"
-            descriptionClassName="font-roboto text-sm text-gray-600"
+            listClassName="flex flex-col items-center w-[180px] text-center sm:gap-[12px] "
+            imageClassName="flex flex-col " 
+            titleClassName="font-merriweather text-section-subtext text-lightGingerFlower leading-[38.4px] pt-[24px] pb-[8px] sm:text-[28px] "
+            descriptionClassName="font-roboto text-[22px] text-black font-normal leading-[28.6px] tracking-[-0.02em] sm:text-paragraph-sm "
           />
         ) : null // Don't render if no image
       ))}
@@ -316,3 +315,6 @@ function App() {
 }
 
 export default App;
+
+
+
