@@ -4,8 +4,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./global/default.css";
 
-import { Gallery } from "./components/Gallery/Gallery";
-
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
   cache: new InMemoryCache(),
@@ -16,7 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Gallery />} />
+          <Route path="/" element={<div>Home Route</div>} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
