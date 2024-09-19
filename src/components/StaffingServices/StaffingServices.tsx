@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Header } from "../Header/Header";
 import { Image } from "../Image/Image";
 import { Footer } from "../Footer/Footer";
@@ -6,30 +5,13 @@ import { Button } from "../Button/Button";
 import outdoor from "../../assets/image-outdoor1.png";
 
 interface Props {
-  screenWidth?: "mobile" | "desktop";
   onClick?: () => void;
 }
 
-export function StaffingServices({ screenWidth, onClick }: Props) {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const isMobile = screenWidth === "mobile";
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setWindowWidth(width);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+export function StaffingServices({ onClick }: Props) {
   return (
     <>
       <Header />
-      {isMobile && windowWidth}
       <div className="bg-wheat relative">
         <h1 className="px-[16px] mt-[76px] pt-[60px] tracking-tighter text-welcome-title font-title text-center text-wetCoral leading-[86px] font-bold pb-[80px] md:text-mobile-title md:leading-[53px] md:pt-[80px] md:pb-[60px] md:px-[30px]">
           Staffing Services
