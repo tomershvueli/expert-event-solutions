@@ -1,6 +1,11 @@
 import { HorizontalList } from "../HorizontalList/HorizontalList";
 import { useEffect, useState } from "react";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Pagination } from 'swiper/modules';
 import  HorizontalImage  from "../../images/HorizontalImage.svg";
+import "swiper/css";
+import "swiper/css/pagination";
+
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -290,11 +295,14 @@ function App() {
           />
         ))}
       </HorizontalList>
+      
       {/* image */}
       <HorizontalList
         containerClassName="bg-wheat"
         unorderedListClassName="flex gap-[86px] justify-center"
         >
+        {/*  render swiper component only if isMobile is true */}
+
       {aboutItems.map((item, index) => (
         item.src && item.alt ? ( // Ensure src and alt exist
           <HorizontalList.Item 
@@ -302,14 +310,16 @@ function App() {
             image={{ src: item.src, alt: item.alt }} // Pass image as object
             title={item.title}
             description={item.description}
-            listClassName="flex flex-col items-center w-[180px] text-center sm:gap-[12px] "
+            listClassName="flex flex-col items-center w-[190px] text-center sm:gap-[12px] "
             imageClassName="flex flex-col " 
             titleClassName="font-merriweather text-section-subtext text-lightGingerFlower leading-[38.4px] pt-[24px] pb-[8px] sm:text-[28px] "
-            descriptionClassName="font-roboto text-[22px] text-black font-normal leading-[28.6px] tracking-[-0.02em] sm:text-paragraph-sm "
+            descriptionClassName="font-roboto text-[22px] text-black font-normal leading-[28.6px] tracking-[-0.02em] w-[182px] sm:text-paragraph-sm "
           />
         ) : null // Don't render if no image
       ))}
+
       </HorizontalList>
+
     </div>
   );
 }
