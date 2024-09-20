@@ -12,7 +12,7 @@ interface AboutItem {
 export function HorizontalListImage() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const isMobile = windowWidth <= 800;
+  const isMobile = windowWidth <= 850;
 
   const aboutItems: AboutItem[] = [
     {
@@ -59,7 +59,7 @@ export function HorizontalListImage() {
       {!isMobile ? (
         <HorizontalList
           containerClassName="bg-wheat"
-          unorderedListClassName="flex gap-[86px] justify-center"
+          unorderedListClassName="flex gap-[86px] pt-[10px] justify-center"
         >
           {aboutItems.map((item, index) =>
             item.src && item.alt ? ( // Ensure src and alt exist
@@ -79,13 +79,25 @@ export function HorizontalListImage() {
       ) : (
         <HorizontalList
           containerClassName="bg-wheat"
-          unorderedListClassName="flex gap-[86px] justify-center sm:pl-[16px]"
+          unorderedListClassName="flex gap-[86px] pt-[10px] justify-center sm:ml-[16px] "
         >
-          <Swiper slidesPerView={1.57}>
+          <Swiper
+            breakpoints={{
+              320: {
+                slidesPerView: 1.3, // Small mobile view
+              },
+              414: {
+                slidesPerView: 1.6, // Large mobile view
+              },
+              834: {
+                slidesPerView: 3, // Tablet view
+              },
+            }}
+          >
             {aboutItems.map(
               (item, index) =>
                 item.src && item.alt ? ( // Ensure src and alt exist
-                  <SwiperSlide key={index} className="">
+                  <SwiperSlide key={index} style={{}}>
                     <HorizontalList.Item
                       key={index}
                       image={{ src: item.src, alt: item.alt }} // Pass image as object
