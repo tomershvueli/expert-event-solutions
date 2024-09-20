@@ -20,7 +20,6 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
   }
 
   const companyContactInfo = useCompanyContactInfo();
-  console.log(companyContactInfo);
 
   return (
     <footer
@@ -54,18 +53,19 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
                 className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
                   isMobile ? "text-center" : "text-left"
                 }`}
-                onClick={() => console.log("clicked address")}
+                onClick={() => {}}
               >
                 {companyContactInfo ? companyContactInfo[0]?.address : ""}
               </a>
-              <p
+              <a
                 className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
                   isMobile ? "text-center" : "text-left"
                 }`}
-                onClick={() => console.log("clicked email")}
+                onClick={() => {}}
+                href="mailto:Info@experteventsolutions.com"
               >
                 {companyContactInfo ? companyContactInfo[0]?.contactEmail : ""}
-              </p>
+              </a>
             </div>
           </div>
         ) : null}
