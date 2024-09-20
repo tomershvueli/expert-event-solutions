@@ -130,7 +130,7 @@ export function HorizontalListStaffing() {
             sm:px-[12px] sm:gap-[32px]"
             titleClassName="font-title text-section-subtext text-wheat leading-[38.4px] 
             sm:text-[28px]"
-            descriptionClassName="font-roboto text-[22px] text-wheat leading-[26.4px]
+            descriptionClassName="font-roboto text-paragraph-lg text-wheat leading-[26.4px]
             sm:text-paragraph-sm"
           />
         ))}

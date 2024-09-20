@@ -71,7 +71,7 @@ export function HorizontalListImage() {
                 listClassName="flex flex-col items-center w-[190px] text-center sm:gap-[12px] "
                 imageClassName="flex flex-col "
                 titleClassName="font-title text-section-subtext text-lightGingerFlower leading-[38.4px] pt-[24px] pb-[8px] sm:text-[28px] "
-                descriptionClassName="font-roboto text-[22px] text-black font-normal leading-[28.6px] tracking-[-0.02em] w-[182px] sm:text-paragraph-sm "
+                descriptionClassName="font-roboto text-paragraph-lg text-black font-normal leading-[28.6px] tracking-[-0.02em] w-[182px] sm:text-paragraph-sm "
               />
             ) : null,
           )}
@@ -106,7 +106,7 @@ export function HorizontalListImage() {
                       listClassName="flex flex-col items-center w-[190px] text-center sm:gap-[12px]"
                       imageClassName="flex flex-col"
                       titleClassName="font-title text-section-subtext text-lightGingerFlower leading-[38.4px] pt-[24px] pb-[8px] sm:text-[28px] "
-                      descriptionClassName="font-roboto text-[22px] text-black font-normal leading-[28.6px] tracking-[-0.02em] w-[182px] sm:text-paragraph-sm"
+                      descriptionClassName="font-roboto text-paragraph-lg text-black font-normal leading-[28.6px] tracking-[-0.02em] w-[182px] sm:text-paragraph-sm"
                     />
                   </SwiperSlide>
                 ) : null, // change this to render a overlay with no image

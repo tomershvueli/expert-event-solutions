@@ -4,8 +4,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./global/default.css";
 // import { HorizontalListImage } from "./components/HorizontalList/HorizontalListImage/HorizontalListImage";
-// import { HorizontalListHome } from "./components/HorizontalList/HorizontalListHome/HorizontalListHome";
-import { HorizontalListStaffing } from "./components/HorizontalList/HorizontalListStaffing/HorizontalListStaffing";
+import { HorizontalListHome } from "./components/HorizontalList/HorizontalListHome/HorizontalListHome";
+// import { HorizontalListStaffing } from "./components/HorizontalList/HorizontalListStaffing/HorizontalListStaffing";
 
 const client = new ApolloClient({
   uri: "http://localhost:8080/api/graphql",
@@ -17,8 +17,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         {/* <HorizontalListImage /> */}
-        {/* <HorizontalListHome /> */}
-        <HorizontalListStaffing />
+        <HorizontalListHome />
+        {/* <HorizontalListStaffing /> */}
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
