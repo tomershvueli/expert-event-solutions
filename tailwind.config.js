@@ -39,7 +39,7 @@ export default {
         "mobile-title": "44px",
         "section-subheader": "38px",
         "section-subtext": "32px",
-        "subsection-title": "26px",
+        "subsection-title": "24px",
         "button-lg": "24px",
         "paragraph-lg": "22px",
         "paragraph-sm": "20px",
