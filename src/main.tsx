@@ -3,7 +3,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./global/default.css";
-// import App from "../src/components/App/App";
 // import { HorizontalListImage } from "./components/HorizontalList/HorizontalListImage/HorizontalListImage";
 // import { HorizontalListHome } from "./components/HorizontalList/HorizontalListHome/HorizontalListHome";
 // import { HorizontalListStaffing } from "./components/HorizontalList/HorizontalListStaffing/HorizontalListStaffing";
@@ -20,7 +19,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         {/* <HorizontalListImage /> */}
         {/* <HorizontalListHome /> */}
         {/* <HorizontalListStaffing /> */}
-        {/* <App /> */}
       </BrowserRouter>
     </ApolloProvider>
   </React.StrictMode>,
