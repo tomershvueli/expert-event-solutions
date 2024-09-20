@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 
-import { HorizontalList } from "./HorizontalList";
+import { HorizontalList } from "../HorizontalList";
 
 export default {
   title: "Components/HorizontalList",
