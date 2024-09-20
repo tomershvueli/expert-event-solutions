@@ -15,5 +15,3 @@ const Template: StoryFn<typeof HorizontalList> = () => (
 );
 
 export const StaffingServicesList = Template.bind({});
-
-StaffingServicesList.args = {};
