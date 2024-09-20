@@ -1,6 +1,5 @@
-import Form from "./Form";
 import { useForm, FieldValues } from "react-hook-form";
-
+import TextInput from "./FormInput";
 function FormPhoneInputComponent() {
   const {
     register,
@@ -10,7 +9,7 @@ function FormPhoneInputComponent() {
 
   return (
     <>
-      <Form.TextInput
+      <TextInput
         type="tel"
         placeholder="Phone Number"
         register={register}
@@ -19,7 +18,7 @@ function FormPhoneInputComponent() {
         onSubmit={(data: FieldValues) => {
           console.log("Submitted data:", data);
         }}
-      ></Form.TextInput>
+      ></TextInput>
     </>
   );
 }
@@ -33,7 +32,7 @@ function FormEmailInputComponent() {
 
   return (
     <>
-      <Form.TextInput
+      <TextInput
         type="email"
         placeholder="Email"
         register={register}
@@ -42,7 +41,7 @@ function FormEmailInputComponent() {
         onSubmit={(data: FieldValues) => {
           console.log("Submitted data:", data);
         }}
-      ></Form.TextInput>
+      ></TextInput>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
-import submitButton from "../../images/submitbutton.svg";
+import { Button } from "../Button/Button";
 
 export type FormValues = {
   description: string;
@@ -8,9 +8,9 @@ export type FormValues = {
 };
 
 interface FormProps {
+  submit: (data: FormValues) => void;
   children?: React.ReactNode;
   className?: string; // Add className for dynamic styling
-  submit: (data: FormValues) => void;
 }
 
 const Form: React.FC<FormProps> = ({ submit, children, className }) => {
@@ -43,15 +43,8 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
         onKeyDown={handleKeyDown}
       >
         {children}
-        {/* Mock submit button for testing purposes */}
 
-        <button type="submit" className="mt-10 flex justify-center">
-          <img
-            className="w-[253px] h-[71px] opacity-100 hover:opacity-80 transition-opacity duration-300"
-            src={submitButton}
-            alt="Submit button"
-          />
-        </button>
+        <Button />
       </form>
     </FormProvider>
   );
