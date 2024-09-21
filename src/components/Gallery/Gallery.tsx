@@ -29,9 +29,9 @@ export const Gallery: React.FC = () => {
   ];
 
   return (
-    <div className="gallery-container">
+    <div className="gallery-container max-w-[1180px] mx-auto ">
       {/* Wide screen layout (3x3 grid for large screens) */}
-      <div className="sm:hidden md:hidden grid grid-cols-3 gap-5">
+      <div className="  sm:hidden md:hidden grid grid-cols-3 gap-5">
         {images.map((src, index) => (
           <Image
             key={index}
@@ -43,7 +43,7 @@ export const Gallery: React.FC = () => {
       </div>
 
       {/* Carousel for small and medium screens */}
-      <div className="hidden sm:flex md:flex">
+      <div className="hidden sm:flex md:flex ">
         <Swiper
           pagination={{
             type: "custom",
@@ -99,7 +99,7 @@ export const Gallery: React.FC = () => {
             alignItems: "center",
             width: "100%",
             maxWidth: "343px",
-            margin: "4px auto 0",
+            margin: "0 auto",
             paddingBottom: "30px", // Reserve space for pagination bullets
           }}
         >
