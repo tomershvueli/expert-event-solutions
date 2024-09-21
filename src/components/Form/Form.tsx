@@ -55,7 +55,7 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   return (
     <FormProvider {...methods}>
       <form
-        className={`flex items-center flex-col gap-[7.47px] ${className}`}
+        className={`flex items-center flex-col gap-[7.47px] pb-[40px] ${className}`}
         onSubmit={onSubmit}
       >
         {children}

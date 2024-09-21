@@ -42,16 +42,16 @@ export const Modal = ({ children, name, isOpen, onClose }: ModalProps) => {
 
   return (
     <ModalOverlay
-      className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${
+      className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center   ${
         isOpen || isAnimating ? "visible" : "invisible"
       }`} // Keep it visible if open or animating
       onClick={onClose}
     >
       <dialog
         ref={dialogRef}
-        className={`flex flex-col w-[467px] h-[582px] p-[28px] gap-[7.47px] rounded-[40px] bg-wheat ${
+        className={`flex flex-col w-[467px] min-h-[582px] p-[28px] gap-[7.47px] rounded-[40px] bg-wheat ${
           isOpen ? "animate-slide-up" : "animate-slide-down"
-        } ${name}`}
+        } ${name} overflow-y-auto`}
         onClick={(e) => e.stopPropagation()}
         onAnimationEnd={handleAnimationEnd} // Hide after animation ends
       >
