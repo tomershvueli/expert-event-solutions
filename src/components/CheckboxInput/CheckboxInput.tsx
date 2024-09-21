@@ -30,7 +30,6 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({
     const newValue = !isClicked;
     setIsClicked(newValue);
     setValue(name, newValue);
-    console.log("Checkbox state updated:", newValue);
   };
 
   useEffect(() => {

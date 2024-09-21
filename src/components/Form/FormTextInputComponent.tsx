@@ -39,7 +39,7 @@ function FormComponent({
       required={required}
       requiredError={requiredError}
       handleSubmit={handleSubmit}
-      onSubmit={() => console.log("Form submitted")}
+      onSubmit={() => {}}
       validationRules={validationRules}
     />
   );

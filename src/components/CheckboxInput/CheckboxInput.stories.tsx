@@ -15,7 +15,7 @@ export const Default: StoryFn = () => {
 
   // Define a form method to handle form submission (if needed)
   const onSubmit = (data: FormData) => {
-    console.log("Form submitted with data:", data);
+    data;
   };
 
   return (
