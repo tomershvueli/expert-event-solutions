@@ -6,9 +6,9 @@ import { Image } from "../Image/Image";
 
 export const RentalEquipment = () => {
   return (
-    <div className="bg-wheat flex flex-col items-center">
-      <h1 className="md:text-mobile-title pt-[142px] pb-[80px] font-bold text-lightGingerFlower text-welcome-title font-title">
-        Renting Equipment
+    <div className="sm:pb-[500px] px-[110px]  pb-[366px] xl:pb-[462px]  bg-wheat flex flex-col items-center">
+      <h1 className="md:text-mobile-title md:text-center lg:text-center sm:text-center pt-[142px] pb-[80px] font-bold text-lightGingerFlower text-welcome-title font-title">
+        Renting equipment
       </h1>
 
       <div className="sm:items-center flex flex-col gap-[80px] sm:gap-[510px]  ">
@@ -45,11 +45,13 @@ export const RentalEquipment = () => {
           </div>
         </div>
         {/* Third image container w/description */}
-        <Image src={imageTentWithFoam} alt="" context="equipment" />
+        <div className="sm:hidden">
+          <Image src={imageTentWithFoam} alt="" context="equipment" />
+        </div>
         {/* Fourth image container w/description */}
-        <div className="relative sm:h-[922px] sm:w-[343px]">
+        <div className=" relative sm:h-[922px] sm:w-[343px]">
           <Image src={imageArchways} alt="" context="equipment" />
-          <div className="hidden absolute h-[553px] top-[19.75rem] sm:block border-4 border-lightGingerFlower bg-wheat rounded-[60px] overflow-hidden ">
+          <div className="hidden sm:z-9 absolute h-[553px] top-[19.75rem] sm:block border-4 border-lightGingerFlower bg-wheat rounded-[60px] overflow-hidden ">
             <h1 className="text-section-subtext text-center text-gingerFlower font-title w-[319px] pt-[40px] pb-[24px] font-bold">
               Inflatable Archways
             </h1>
@@ -61,31 +63,18 @@ export const RentalEquipment = () => {
               also have custom banners designed to meet your marketing needs.
             </p>
           </div>
-        </div>
-
-        {/* <img
-          className="sm:max-w-[343px]"
-          src={imageInflatableProjector}
-          alt="Rental Equipment Image 2"
-        /> */}
-        {/* <img
-          className="sm:max-w-[343px]"
-          src={imageTentWithFoam}
-          alt="Rental Equipment Image 3"
-        /> */}
-        <div className="sm:max-w-[343px] flex flex-col items-center  h-[962px] border-[6px] rounded-[70px] sm:rounded-[30px] md:border-4 border-lightGingerFlower">
-          {/* <img
-            className="sm:max-w-[343px]"
-            src={imageArchways}
-            alt="Rental Equipment Image 4"
-          /> */}
-          <h2 className=" md:text-mobile-title text-contact-header pt-[120px] font-bold text-lightGingerFlower font-title">
-            Tell us about your Event
-          </h2>
-          <p className="flex flex-wrap font-text paragraph-lg text-lightblack width-[438px]">
-            Send the team a Note. Tell us a little more about what you are
-            looking for
-          </p>
+          {/* Image Bottom Div */}
+          <div className="absolute sm:pt-[500px] top-[-0.15rem] sm:px-[31px] sm:top-[19.75rem] w-full items-center z-0  flex flex-col items-center text-center sm:h-[980px] h-[962px] lg:h-[757px] xl:h-[879px] border-[6px] rounded-[44px] sm:rounded-[60px] md:border-4 border-lightGingerFlower">
+            <div className="flex flex-col items-center absolute px-[20px] sm:bottom-[173px] lg:bottom-[185px] xl:bottom-[198px] 2xl:bottom-[192px] bottom-[173px]">
+              <h2 className=" md:text-mobile-title text-contact-header pt-[120px] font-bold text-lightGingerFlower  font-title">
+                Tell us about your Event
+              </h2>
+              <p className="flex flex-wrap font-text paragraph-lg text-lightblack width-[438px] ">
+                Send the team a Note. Tell us a little more about what you are
+                looking for
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
