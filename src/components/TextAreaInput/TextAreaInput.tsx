@@ -24,11 +24,15 @@ const TextAreaInput: React.FC<TextAreaInputProps> = ({
   const errorMessage = errors[name]?.message as string | undefined;
 
   return (
-    <div className=" w-full flex flex-col items-center">
+    <div className=" w-[411.03px] flex flex-col ">
       <textarea
-        className="w-full h-[167px] rounded-[12px] p-3.5 bg-offWhite mb-2.5 box-border 
-        text-form-text font-roboto leading-[19.2px] resize-none outline-lightGrey"
-        {...register(name, { required: required ? requiredError : false,})}
+        className={`w-full h-[167px] rounded-[12px] p-3.5 bg-offWhite mb-2.5 box-border 
+        text-form-text font-roboto leading-[19.2px] resize-none outline-lightGrey  ${
+          errorMessage
+            ? "border border-lightGingerFlower focus:outline-lightGingerFlower"
+            : ""
+        }`}
+        {...register(name, { required: required ? requiredError : false })}
         placeholder={placeholder}
       />
       {errorMessage && <p className="text-gingerFlower">{errorMessage}</p>}

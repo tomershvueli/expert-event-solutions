@@ -46,7 +46,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({
   const hasError = errors[name]?.message;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="w-[411.03px] flex flex-col pb-[41px]">
       <div className="flex items-start gap-2.5">
         <div
           className="relative cursor-pointer min-h-[27px] h-[27px] min-w-[27px]"
@@ -59,7 +59,13 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({
             })}
             className="hidden" // Hide the native checkbox
           />
-          <div className="absolute inset-0 bg-offWhite rounded-[4px]">
+          <div
+            className={`absolute inset-0 bg-offWhite rounded-[4px] ${
+              hasError && !isClicked
+                ? "border border-lightGingerFlower focus:outline-lightGingerFlower"
+                : ""
+            }`}
+          >
             {isClicked && (
               <img
                 src={check}

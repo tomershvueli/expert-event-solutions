@@ -6,6 +6,10 @@ interface TextInputProps {
   errors: ReturnType<typeof useForm>["formState"]["errors"];
   handleSubmit: ReturnType<typeof useForm>["handleSubmit"];
   onSubmit: (data: FieldValues) => void;
+  required?: boolean;
+  requiredError?: string;
+  error?: string;
+  validationRules: object;
 }
 
 const TextInput = ({
@@ -15,6 +19,8 @@ const TextInput = ({
   errors,
   handleSubmit,
   onSubmit,
+
+  validationRules,
 }: TextInputProps) => {
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -22,17 +28,6 @@ const TextInput = ({
     }
   };
 
-  const validationRules = {
-    required: type === "tel" ? "Phone number is required" : "Email is required",
-    pattern: {
-      value:
-        type === "tel"
-          ? /^[+]?[0-9\s\-().]{10,15}$/
-          : /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message:
-        type === "tel" ? "Invalid phone number format" : "Invalid email format",
-    },
-  };
   return (
     <div className="flex flex-col ">
       <input
