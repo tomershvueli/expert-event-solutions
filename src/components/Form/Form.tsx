@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 export type FormValues = {
   description: string;
   agreeToTerms: boolean;
-
+  tel: string;
   email: string;
 };
 
@@ -19,7 +19,7 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   const methods = useForm<FormValues>({
     defaultValues: {
       agreeToTerms: false,
-
+      tel: "",
       email: "",
       description: "",
     },
