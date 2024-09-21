@@ -49,7 +49,7 @@ export const Modal = ({ children, name, isOpen, onClose }: ModalProps) => {
     >
       <dialog
         ref={dialogRef}
-        className={`flex flex-col w-[467px] min-h-[582px] p-[28px] gap-[7.47px] rounded-[40px] bg-wheat ${
+        className={`flex flex-col max-w-[467px] w-[100%]  min-h-[582px] p-[28px] gap-[7.47px] rounded-[40px] bg-wheat md ${
           isOpen ? "animate-slide-up" : "animate-slide-down"
         } ${name} overflow-y-auto`}
         onClick={(e) => e.stopPropagation()}

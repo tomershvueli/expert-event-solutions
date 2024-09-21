@@ -2,7 +2,7 @@ import { useFormContext } from "react-hook-form";
 import TextInput from "./FormInput";
 
 interface FormComponentProps {
-  type: "tel" | "email";
+  type: "tel" | "email" | "name";
   placeholder: string;
   requiredError: string;
   required?: boolean;
@@ -25,14 +25,20 @@ function FormComponent({
       value:
         type === "tel"
           ? /^[+]?[0-9\s\-().]{10,15}$/ // Phone number pattern
-          : /^[^\s@]+@[^\s@]+\.[^\s@]+$/, // Email pattern
+          : type === "email"
+          ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/ // Email pattern
+          : undefined, // No pattern for "name" type
       message:
-        type === "tel" ? "Invalid phone number format" : "Invalid email format",
+        type === "tel"
+          ? "Invalid phone number format"
+          : type === "email"
+          ? "Invalid email format"
+          : undefined, // No error message for "name" type
     },
   };
   return (
     <TextInput
-      type={type}
+      type={type as "tel" | "email"}
       placeholder={placeholder}
       register={register}
       errors={errors}
@@ -45,6 +51,14 @@ function FormComponent({
   );
 }
 
+export const FormNameComponent = () => (
+  <FormComponent
+    type="name"
+    placeholder="First and last name"
+    requiredError="First and last name is required"
+    required={true}
+  />
+);
 export const FormPhoneInputComponent = () => (
   <FormComponent
     type="tel"

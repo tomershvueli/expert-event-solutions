@@ -29,9 +29,9 @@ const TextInput = ({
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="w-[100%] w-[411.03px] flex flex-col ">
       <input
-        className={`w-[411.03px] h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px] text-form-text bg-offWhite outline-lightGrey  ${
+        className={` h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px] text-form-text bg-offWhite outline-lightGrey  ${
           errors[type]
             ? "border border-lightGingerFlower focus:outline-lightGingerFlower"
             : ""

@@ -6,6 +6,7 @@ import TextAreaInput from "../TextAreaInput/TextAreaInput";
 import {
   FormPhoneInputComponent,
   FormEmailInputComponent,
+  FormNameComponent,
 } from "../Form/FormTextInputComponent";
 import { action } from "@storybook/addon-actions";
 interface ContactFormProps {
@@ -21,6 +22,7 @@ const ContactForm = ({ isOpen, onClose }: ContactFormProps) => {
           onClose();
         }}
       >
+        <FormNameComponent />
         <FormPhoneInputComponent />
         <FormEmailInputComponent />
         <TextAreaInput
