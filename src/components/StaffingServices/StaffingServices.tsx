@@ -2,7 +2,7 @@ import { Header } from "../Header/Header";
 import { Image } from "../Image/Image";
 import { Footer } from "../Footer/Footer";
 import { Button } from "../Button/Button";
-import outdoor from "../../assets/image-outdoor1.png";
+import outdoor from "../../images/image-outdoor1.png";
 
 interface Props {
   screenWidth?: "mobile" | "desktop";

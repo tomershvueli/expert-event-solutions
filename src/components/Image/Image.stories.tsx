@@ -15,6 +15,6 @@ const ImageTemplate: StoryFn<typeof Image> = (args) => (
 
 export const Default = ImageTemplate.bind({});
 Default.args = {
-  src: "src/assets/image-outdoor1.png",
+  src: "src/images/image-outdoor1.png",
   alt: "Image of sunny outdoor event",
 };
