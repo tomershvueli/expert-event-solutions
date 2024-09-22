@@ -62,7 +62,9 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
                   isMobile ? "text-center" : "text-left"
                 }`}
                 onClick={() => {}}
-                href="mailto:Info@experteventsolutions.com"
+                href={`mailto:${
+                  companyContactInfo ? companyContactInfo[0]?.contactEmail : ""
+                }`}
               >
                 {companyContactInfo ? companyContactInfo[0]?.contactEmail : ""}
               </a>
