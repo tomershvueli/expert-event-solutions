@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<div>Home Route</div>} />
-          <Route path="/StaffingServices" element={<StaffingServices />} />
+          <Route path="/staffing-services" element={<StaffingServices />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
