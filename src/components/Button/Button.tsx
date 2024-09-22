@@ -8,7 +8,7 @@ export const Button = ({ onClick, buttonText, submitButton }: Props) => {
   return (
     <>
       <button
-        className={` group relative w-80 h-20 rounded-3xl border-6 border-lightGingerFlower bg-lightGingerFlower md:border-4 md:rounded-2xl md:w-56 md:h-14 `}
+        className={`group relative w-80 h-20 rounded-3xl border-6 border-lightGingerFlower bg-lightGingerFlower md:border-4 md:rounded-2xl md:w-56 md:h-14`}
         type={submitButton ? "submit" : "button"}
         onClick={onClick}
       >
