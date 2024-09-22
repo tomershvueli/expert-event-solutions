@@ -42,32 +42,36 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
             }`}
           >
             <div className="flex flex-col gap-[24px] ">
-              <p
-                className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
-                  isMobile ? "text-center" : "text-left"
-                }`}
-              >
-                {companyContactInfo ? companyContactInfo[0]?.companyName : ""}
-              </p>
-              <a
-                className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
-                  isMobile ? "text-center" : "text-left"
-                }`}
-                onClick={() => {}}
-              >
-                {companyContactInfo ? companyContactInfo[0]?.address : ""}
-              </a>
-              <a
-                className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
-                  isMobile ? "text-center" : "text-left"
-                }`}
-                onClick={() => {}}
-                href={`mailto:${
-                  companyContactInfo ? companyContactInfo[0]?.contactEmail : ""
-                }`}
-              >
-                {companyContactInfo ? companyContactInfo[0]?.contactEmail : ""}
-              </a>
+              {companyContactInfo[0]?.companyName && (
+                <p
+                  className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
+                    isMobile ? "text-center" : "text-left"
+                  }`}
+                >
+                  {companyContactInfo[0]?.companyName}
+                </p>
+              )}
+              {companyContactInfo[0]?.address && (
+                <a
+                  className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
+                    isMobile ? "text-center" : "text-left"
+                  }`}
+                  onClick={() => {}}
+                >
+                  {companyContactInfo[0]?.address}
+                </a>
+              )}
+              {companyContactInfo[0]?.contactEmail && (
+                <a
+                  className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
+                    isMobile ? "text-center" : "text-left"
+                  }`}
+                  onClick={() => {}}
+                  href={`mailto:${companyContactInfo[0]?.contactEmail}`}
+                >
+                  {companyContactInfo[0]?.contactEmail}
+                </a>
+              )}
             </div>
           </div>
         ) : null}
