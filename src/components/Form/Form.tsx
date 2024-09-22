@@ -1,71 +1,68 @@
-import { useForm, FieldValues } from "react-hook-form";
+import React, { useEffect } from "react";
+import { useForm, FormProvider } from "react-hook-form";
+import { Button } from "../Button/Button";
+
+export type FormValues = {
+  description: string;
+  agreeToTerms: boolean;
+  phone: string;
+  email: string;
+};
 
 interface FormProps {
-  className?: string;
+  submit: (data: FormValues) => void;
   children?: React.ReactNode;
-  onSubmit: (data: FieldValues) => void;
+  className?: string;
 }
 
-export const Form = ({ className, children, ...rest }: FormProps) => {
-  return (
-    <form className={`flex flex-col gap-[7.47px] ${className}`} {...rest}>
-      {children}
-    </form>
-  );
-};
-
-interface TextInputProps {
-  placeholder?: string;
-  type: "email" | "tel";
-  register: ReturnType<typeof useForm>["register"];
-  errors: ReturnType<typeof useForm>["formState"]["errors"];
-  handleSubmit: ReturnType<typeof useForm>["handleSubmit"];
-  onSubmit: (data: FieldValues) => void;
-}
-
-Form.TextInput = ({
-  placeholder,
-  type,
-  register,
-  errors,
-  handleSubmit,
-  onSubmit,
-}: TextInputProps) => {
-  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleSubmit(onSubmit)();
-    }
-  };
-
-  const validationRules = {
-    required: type === "tel" ? "Phone number is required" : "Email is required",
-    pattern: {
-      value:
-        type === "tel"
-          ? /^[+]?[0-9\s\-().]{10,15}$/
-          : /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-      message:
-        type === "tel" ? "Invalid phone number format" : "Invalid email format",
+const Form: React.FC<FormProps> = ({ submit, children, className }) => {
+  const methods = useForm<FormValues>({
+    defaultValues: {
+      agreeToTerms: false,
+      phone: "",
+      email: "",
+      description: "",
     },
-  };
+  });
+
+  const onSubmit = methods.handleSubmit((data) => {
+    submit(data);
+    methods.reset();
+  });
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        const activeElement = document.activeElement;
+        // Check if the active element is not an input or textarea
+        if (
+          activeElement &&
+          !["INPUT", "TEXTAREA"].includes(activeElement.tagName)
+        ) {
+          e.preventDefault();
+          onSubmit();
+        }
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onSubmit]);
+
   return (
-    <div className="flex flex-col ">
-      <input
-        className={`w-[411.03px] h-[47.04px] p-[12.7px] bg-offwhite rounded-[12px] text-form-text bg-offWhite  ${
-          errors[type]
-            ? "border border-lightGingerFlower focus:outline-lightGingerFlower"
-            : ""
-        }`}
-        type={type}
-        placeholder={placeholder}
-        {...register(type, validationRules)}
-        onKeyDown={handleEnter}
-      />
-      {errors[type] && (
-        <span className="text-red text-form-text mt-1 text-lightGingerFlower">
-          {errors[type]?.message?.toString()}
-        </span>
-      )}
-    </div>
+    <FormProvider {...methods}>
+      <form
+        className={`flex items-center flex-col gap-[7.47px] ${className}`}
+        onSubmit={onSubmit}
+      >
+        {children}
+        <Button buttonText="Submit" submitButton={true} />
+      </form>
+    </FormProvider>
   );
 };
+
+export default Form;
