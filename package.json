@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
-    "@apollo/client": "^3.8.5",
+    "@apollo/client": "^3.11.8",
     "@fortawesome/fontawesome-common-types": "^6.4.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
@@ -36,7 +36,7 @@
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "esbuild": "^0.19.8",
-    "graphql": "^16.8.1",
+    "graphql": "^16.9.0",
     "imask": "^7.6.0",
     "lodash": "^4.17.21",
     "pluralize": "^8.0.0",
