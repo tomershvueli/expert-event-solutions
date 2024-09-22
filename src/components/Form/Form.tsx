@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 export type FormValues = {
   description: string;
   agreeToTerms: boolean;
-  phone: string;
+  tel: string;
   email: string;
 };
 
@@ -19,7 +19,7 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   const methods = useForm<FormValues>({
     defaultValues: {
       agreeToTerms: false,
-      phone: "",
+      tel: "",
       email: "",
       description: "",
     },
@@ -55,7 +55,7 @@ const Form: React.FC<FormProps> = ({ submit, children, className }) => {
   return (
     <FormProvider {...methods}>
       <form
-        className={`flex items-center flex-col gap-[7.47px] ${className}`}
+        className={`flex items-center flex-col gap-[7.47px] pb-[40px] ${className}`}
         onSubmit={onSubmit}
       >
         {children}

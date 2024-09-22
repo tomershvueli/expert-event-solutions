@@ -45,7 +45,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({
   const hasError = errors[name]?.message;
 
   return (
-    <div className="w-[411.03px] flex flex-col pb-[41px]">
+    <div className="w-[100%] w-[411.03px] flex flex-col pb-[41px]">
       <div className="flex items-start gap-2.5">
         <div
           className="relative cursor-pointer min-h-[27px] h-[27px] min-w-[27px]"
@@ -77,7 +77,7 @@ const CheckboxInput: React.FC<CheckboxInputProps> = ({
         <span>{label}</span>
       </div>
       {hasError && !isClicked && (
-        <span className="text-gingerFlower">{hasError}</span>
+        <span className="pl-[37px] text-gingerFlower">{hasError}</span>
       )}
     </div>
   );
