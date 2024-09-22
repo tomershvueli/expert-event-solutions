@@ -41,7 +41,7 @@ export function HorizontalListHome() {
       {/* Home Page List */}
       <HorizontalList
         containerClassName="flex bg-wheat w-full"
-        unorderedListClassName="flex h-[260px] w-full items-center
+        unorderedListClassName="flex h-[260px] w-full items-center justify-center
         lg:h-[100%]
         md:flex-col md:h-[100%] md:items-center md:gap-[20px]
         sm:flex-col sm:h-[100%] sm:items-center sm:gap-[20px]"
