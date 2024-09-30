@@ -33,7 +33,6 @@ interface GalleryProps {
 export const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
   return (
     <div className="gallery-container">
-      {/* Wide screen layout (3x3 grid for large screens) */}
       <div className="sm:hidden md:hidden grid grid-cols-3 gap-5">
         {images.map((src, index) => (
           <Image
@@ -45,7 +44,6 @@ export const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
         ))}
       </div>
 
-      {/* Carousel for small and medium screens */}
       <div className="hidden sm:flex md:flex">
         <Swiper
           pagination={{
@@ -67,7 +65,7 @@ export const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
                           };
                         " 
                       ></span>`;
-                }) // unable to use tailwind
+                })
                 .join("");
 
               return `<div class="flex justify-center mx-1 w-full">
@@ -81,7 +79,7 @@ export const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
           slidesPerView={1}
           className="relative flex justify-center items-center w-full max-w-[343px] mx-auto pt-0 overflow-hidden"
           style={{
-            paddingBottom: "30px", // Reserve space for pagination bullets, unable to use tailwind
+            paddingBottom: "30px",
           }}
         >
           {images.map((src, index) => (
