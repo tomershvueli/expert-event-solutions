@@ -54,17 +54,10 @@ export const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
                 .map((_, index) => {
                   const className =
                     currentPage === index + 1
-                      ? "swiper-pagination-bullet-active"
-                      : "swiper-pagination-bullet";
+                      ? "w-full bg-gingerFlower"
+                      : "w-full bg-offWhite";
                   return `
-                      <span class="${className} inline-block w-7 h-1.5 mx-1 rounded-lg"
-                        style="
-                        width: 100%;
-                          background-color: ${
-                            currentPage === index + 1 ? "#d0514a" : "#e9e8d5"
-                          };
-                        " 
-                      ></span>`;
+                      <span class="${className} inline-block w-7 h-1.5 mx-1 rounded-lg"></span>`;
                 })
                 .join("");
 
@@ -77,10 +70,7 @@ export const Gallery: React.FC<GalleryProps> = ({ images = defaultImages }) => {
           modules={[Pagination]}
           spaceBetween={50}
           slidesPerView={1}
-          className="relative flex justify-center items-center w-full max-w-[343px] mx-auto pt-0 overflow-hidden"
-          style={{
-            paddingBottom: "30px",
-          }}
+          className="!pb-[30px] relative flex justify-center items-center w-full max-w-[343px] mx-auto overflow-hidden"
         >
           {images.map((src, index) => (
             <SwiperSlide key={index}>
