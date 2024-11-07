@@ -5,7 +5,7 @@
 Cloning the repository:
 
 ```
-git clone git@github.com:jahorwitz/apiary-frontend.git
+git clone git@github.com:tomershvueli/expert-event-solutions.git
 ```
 
 !!!IMPORTANT Make sure to install dependencies before making any code changes. This repository utilizes git-hooks which must be installed using npm before they will function.
