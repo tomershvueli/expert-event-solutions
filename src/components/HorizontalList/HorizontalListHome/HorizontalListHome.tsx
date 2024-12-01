@@ -55,7 +55,6 @@ export function HorizontalListHome() {
             lg:px-[12px] lg:gap-[12px] 
             md:px-[12px] md:gap-[12px]
             sm:px-[12px] sm:gap-[12px]"
-            //
             titleClassName="font-title text-section-subtext text-lightGingerFlower leading-[38.4px]"
             descriptionClassName="font-roboto text-paragraph-lg text-black 
             leading-[26.4px] w-[246px] tracking-[-0.02em] h-[78px]
