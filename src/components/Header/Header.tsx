@@ -1,4 +1,3 @@
-import EES from "../../images/EES.svg";
 import MenuIcon from "../../images/EESMenuIcon.svg";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -29,7 +28,7 @@ export function Header({ screenWidth }: Props) {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 flex justify-between items-center w-full h-[74px] pt-[45px] pb-[97px] lg:px-[25px] bg-wheat
+        className={`fixed z-10 top-0 left-0 flex justify-between items-center w-full h-[74px] pt-[42px] pb-[34px] lg:px-[25px] bg-wheat
           border-x-4 border-transparent
           ${
             showMenu && windowWidth < 600
@@ -45,14 +44,16 @@ export function Header({ screenWidth }: Props) {
           `}
       >
         <Link to="/">
-          <img
-            src={EES}
-            alt="EES Logo"
-            className={`lg:w-[75px]${
-              windowWidth < 600 ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""
-            }
-              ${isMobile ? "w-[51px] mx-[8.4px] my-[6.3px]" : ""}`}
-          ></img>
+          <h1
+            className={`cursor-pointer text-lightGingerFlower text-center font-title text-ees-logo font-bold leading-[50px] lg:text-section-subheader sm:text-subsection-title sm:leading-[26px] sm:mx-[8.4px] sm:my-[6.3px]
+              ${
+                isMobile
+                  ? " text-subsection-title leading-[26px] mx-[8.4px] my-[6.3px]"
+                  : ""
+              }`}
+          >
+            EES
+          </h1>
         </Link>
         <ul className="flex justify-between items-center p-0 m-0 gap-[20px]">
           {showMenuIcon || isMobile ? (
@@ -99,7 +100,7 @@ export function Header({ screenWidth }: Props) {
       </div>
       {(showMenu && windowWidth < 600) || isMobile ? (
         <div
-          className="fixed left-0 right-0 top-[140px] flex flex-col gap-[20px] bg-wheat border-b-4 border-x-4 border-lightGingerFlower
+          className="fixed z-10 left-0 right-0 top-[76px] flex flex-col gap-[20px] bg-wheat border-b-4 border-x-4 border-lightGingerFlower
             rounded-b-[80px]"
         >
           <div className="flex flex-col gap-[20px] pt-[100px] pb-[190px]">

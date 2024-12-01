@@ -1,50 +1,78 @@
-import { Form } from "./Form";
-import { useForm, FieldValues } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+import TextInput from "./FormInput";
 
-function FormPhoneInputComponent() {
+interface FormComponentProps {
+  type: "tel" | "email" | "name";
+  placeholder: string;
+  requiredError: string;
+  required?: boolean;
+}
+
+function FormComponent({
+  type,
+  placeholder,
+  requiredError,
+  required,
+}: FormComponentProps) {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
-
+  } = useFormContext(); // Use context instead of useForm
+  const validationRules = {
+    required: required ? requiredError : false,
+    pattern: {
+      value:
+        type === "tel"
+          ? /^[+]?[0-9\s\-().]{10,15}$/ // Phone number pattern
+          : type === "email"
+          ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/ // Email pattern
+          : undefined, // No pattern for "name" type
+      message:
+        type === "tel"
+          ? "Invalid phone number format"
+          : type === "email"
+          ? "Invalid email format"
+          : undefined, // No error message for "name" type
+    },
+  };
   return (
-    <>
-      <Form.TextInput
-        type="tel"
-        placeholder="Phone Number"
-        register={register}
-        errors={errors}
-        handleSubmit={handleSubmit}
-        onSubmit={(data: FieldValues) => {
-          console.log("Submitted data:", data);
-        }}
-      ></Form.TextInput>
-    </>
+    <TextInput
+      type={type as "tel" | "email"}
+      placeholder={placeholder}
+      register={register}
+      errors={errors}
+      required={required}
+      requiredError={requiredError}
+      handleSubmit={handleSubmit}
+      onSubmit={() => {}}
+      validationRules={validationRules}
+    />
   );
 }
 
-function FormEmailInputComponent() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm();
+export const FormNameComponent = () => (
+  <FormComponent
+    type="name"
+    placeholder="First and last name"
+    requiredError="First and last name is required"
+    required={true}
+  />
+);
+export const FormPhoneInputComponent = () => (
+  <FormComponent
+    type="tel"
+    placeholder="Phone Number"
+    requiredError="Phone number is required"
+    required={true}
+  />
+);
 
-  return (
-    <>
-      <Form.TextInput
-        type="email"
-        placeholder="Email"
-        register={register}
-        errors={errors}
-        handleSubmit={handleSubmit}
-        onSubmit={(data: FieldValues) => {
-          console.log("Submitted data:", data);
-        }}
-      ></Form.TextInput>
-    </>
-  );
-}
-
-export { FormPhoneInputComponent, FormEmailInputComponent };
+export const FormEmailInputComponent = () => (
+  <FormComponent
+    type="email"
+    placeholder="Email"
+    requiredError="Email is required"
+    required={true}
+  />
+);

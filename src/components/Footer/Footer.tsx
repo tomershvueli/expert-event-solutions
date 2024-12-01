@@ -1,13 +1,25 @@
 import facebook from "../../images/facebook.svg";
 import instagram from "../../images/instagram.svg";
 import linkedin from "../../images/linkedin.svg";
-
+import { useQuery } from "@apollo/client";
+import { GetCompanyContactInfo } from "../../graphql/get-company-contact-info";
 interface Props {
   screenWidth?: "mobile" | "desktop";
 }
 
 export const Footer = ({ screenWidth = "desktop" }: Props) => {
   const isMobile = screenWidth === "mobile";
+
+  function useCompanyContactInfo() {
+    const { loading, error, data } = useQuery(GetCompanyContactInfo);
+
+    if (loading) return "Loading...";
+    if (error) return `Error! ${error.message}`;
+
+    return data ? data.companyContactInfos : null;
+  }
+
+  const companyContactInfo = useCompanyContactInfo();
 
   return (
     <footer
@@ -23,39 +35,46 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "flex-col !gap-[26px]" : "flex-row"
         }`}
       >
-        <div
-          className={`flex flex-col gap-[40px] sm:gap-[26px] ${
-            isMobile ? "gap-[26px]" : "gap-[40px]"
-          }`}
-        >
-          <div className="flex flex-col gap-[24px] ">
-            <p
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
-                isMobile ? "text-center" : "text-left"
-              }`}
-            >
-              Expert Event Solutions
-            </p>
-            <a
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
-                isMobile ? "text-center" : "text-left"
-              }`}
-              onClick={() => {}}
-            >
-              260 Daytona Blvd, Daytona <br /> Beach, Florida 32114, United{" "}
-              <br /> States
-            </a>
-            <a
-              className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
-                isMobile ? "text-center" : "text-left"
-              }`}
-              onClick={() => {}}
-              href="mailto:Info@experteventsolutions.com"
-            >
-              Info@experteventsolutions.com
-            </a>
+        {companyContactInfo && companyContactInfo[0] ? (
+          <div
+            className={`flex flex-col gap-[40px] sm:gap-[26px] ${
+              isMobile ? "gap-[26px]" : "gap-[40px]"
+            }`}
+          >
+            <div className="flex flex-col gap-[24px] ">
+              {companyContactInfo[0]?.companyName && (
+                <p
+                  className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center ${
+                    isMobile ? "text-center" : "text-left"
+                  }`}
+                >
+                  {companyContactInfo[0]?.companyName}
+                </p>
+              )}
+              {companyContactInfo[0]?.address && (
+                <a
+                  className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer w-[271px] ${
+                    isMobile ? "text-center" : "text-left"
+                  }`}
+                  onClick={() => {}}
+                >
+                  {companyContactInfo[0]?.address}
+                </a>
+              )}
+              {companyContactInfo[0]?.contactEmail && (
+                <a
+                  className={`font-text text-paragraph-sm font-normal leading-[26px] tracking-[-0.02em] text-left sm:text-center cursor-pointer ${
+                    isMobile ? "text-center" : "text-left"
+                  }`}
+                  onClick={() => {}}
+                  href={`mailto:${companyContactInfo[0]?.contactEmail}`}
+                >
+                  {companyContactInfo[0]?.contactEmail}
+                </a>
+              )}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         <div className="flex flex-col gap-[24px]">
           <p
@@ -116,7 +135,8 @@ export const Footer = ({ screenWidth = "desktop" }: Props) => {
           isMobile ? "text-center" : "text-left"
         }`}
       >
-        Copyright © {new Date().getFullYear()}. Expert Event Solutions - All
+        Copyright © {new Date().getFullYear()}.{" "}
+        {companyContactInfo ? companyContactInfo[0]?.companyName : ""} - All
         rights reserved.
       </p>
     </footer>

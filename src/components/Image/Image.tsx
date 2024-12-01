@@ -20,7 +20,7 @@ export const Image = ({ src, alt, context }: ImageProps) => {
       break;
     case "gallery":
       className +=
-        "w-[380px] h-[284px] xl:w-[343px] xl:h-[257px] lg:w-[300px] lg:h-[230px] md:w-[250px] md:h-[200px] sm:w-[220px] sm:h-[180px]";
+        "w-[380px] h-[284px] xl:w-[380px] xl:h-[284px] lg:w-[380px] lg:h-[284px] md:w-[343px] md:h-[247px] sm:w-[343px] sm:h-[247px]";
       break;
     case "equipment":
       className +=

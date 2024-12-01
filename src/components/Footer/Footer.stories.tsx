@@ -1,3 +1,4 @@
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { Meta, StoryFn } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import { Footer } from "./Footer";
@@ -16,12 +17,19 @@ export default {
   },
 } as Meta;
 
+const client = new ApolloClient({
+  uri: "http://localhost:8080/api/graphql",
+  cache: new InMemoryCache(),
+});
+
 // Template for the Footer component
 const Template: StoryFn = (args) => {
   return (
-    <BrowserRouter>
-      <Footer {...args} />
-    </BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Footer {...args} />
+      </BrowserRouter>
+    </ApolloProvider>
   );
 };
 
